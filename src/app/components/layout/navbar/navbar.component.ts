@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Inject, Renderer2 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router } from 'node_modules/@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,12 +9,12 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  name: string;
-  email: string;
-  image: string;
+  name: string = "";
+  email: string= "";
+  image: string= "";
 
   constructor(
-    @Inject(DOCUMENT) private document: Document, 
+    @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
     private router: Router
   ) { }
