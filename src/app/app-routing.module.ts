@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from 'node_modules/@angular/router';
 import { BaseComponent } from './components/layout/base/base.component';
 import { ErrorPageComponent } from './components/views/error-page/error-page.component';
 

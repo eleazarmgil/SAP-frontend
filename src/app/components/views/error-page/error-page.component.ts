@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from 'node_modules/@angular/router';
 
 @Component({
   selector: 'app-error-page',
@@ -12,23 +12,23 @@ export class ErrorPageComponent implements OnInit, OnDestroy {
   type: any;
   title: any;
   desc: any;
-  private sub: Subscription;
+  private sub!: Subscription;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.type = this.route.snapshot.paramMap.get('type');
     console.log(this.type);
-    
+
     this.sub = this.route.data.subscribe( param => {
-      if(param.type) {
-        this.type = param.type;
+      if(param['type']) {
+        this.type = param['type'];
       }
-      if(param.title) {
-        this.title = param.title;
+      if(param['title']) {
+        this.title = param['title'];
       }
-      if(param.desc) {
-        this.desc = param.desc
+      if(param['desc']) {
+        this.desc = param['desc']
       }
     });
 
