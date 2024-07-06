@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "SAP-frontend:build:production"
+              "buildTarget": "SAP-frontend:build:production"
             },
             "development": {
-              "browserTarget": "SAP-frontend:build:development"
+              "buildTarget": "SAP-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "SAP-frontend:build"
+            "buildTarget": "SAP-frontend:build"
           }
         },
         "test": {
