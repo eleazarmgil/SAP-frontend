@@ -1,0 +1,66 @@
+.sidebar {
+  position:fixed;
+}
+
+.sidebar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #1353DD 0%, #3699FF 20%, #F3F9FE 70%);
+}
+
+.sidebar-nav .link-arrow {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar-header {
+  border-bottom: 0px;
+}
+
+.user-info {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.sidebar{
+  background-color: #FFFFFF;
+}
+.username {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.nav-item.mm-active{
+    font-weight:600;
+}
+
+ul.sidebar-nav li {
+  margin-top:16px;
+  margin-bottom: 16px;
+}
+
+.sidebar-folded.page-wrapper.navbar{
+    left:0px;
+}
+
+a.nav-link.nav-link-ref{
+    font-weight:100;
+}
+.sidebar .sidebar-body .sidebar-nav .nav-item > .nav-link .link-title{
+    font-size:16px;
+}
+
+.sidebar .sidebar-body .sidebar-nav .nav-item.mm-active > .nav-link::before {
+  background: #3A6FF8;
+}
+.sidebar .sidebar-body .sidebar-nav .nav-item.mm-active > .nav-link {
+  color: #3A6FF8;
+  font-weight:600;
+}
