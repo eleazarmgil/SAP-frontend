@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BaseAuthComponent } from './base-auth/base-auth.component';
 import { SidebarAuthComponent } from './sidebar-auth/sidebar-auth.component';
@@ -12,6 +12,7 @@ import { FooterAuthComponent } from './footer-auth/footer-auth.component';
   imports: [
     CommonModule,
     RouterModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   exports: [
