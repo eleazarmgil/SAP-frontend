@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from 'node_modules/@angular/router';
-import { ErrorPageComponent } from './components/views/error-page/error-page.component';
+import { ErrorPageComponent } from './components/views/error/error-page.component';
 import { LandingBaseComponent } from './components/views/landing-page/layout/base/landing-base.component';
 import { MainPageComponent } from './components/views/landing-page/main-page/main-page.component';
 import { AboutComponent } from './components/views/landing-page/about/about.component';
