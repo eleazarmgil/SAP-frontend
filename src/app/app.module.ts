@@ -7,6 +7,8 @@ import { LayoutModule } from './components/layout/layout.module';
 import { LandingPageModule } from './components/views/landing-page/landing-page.module';
 import { LayoutAuthModule } from './components/views/auth/layout/layout-auth.module';
 import { LandingLayoutModule } from './components/views/landing-page/layout/landing-layout.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthModule } from './components/views/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -15,11 +17,13 @@ import { LandingLayoutModule } from './components/views/landing-page/layout/land
   imports: [
     BrowserModule,
     RouterModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     LandingPageModule,
     LandingLayoutModule,
     LayoutModule,
-    LayoutAuthModule
+    LayoutAuthModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
