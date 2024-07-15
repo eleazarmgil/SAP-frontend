@@ -6,6 +6,7 @@ import { MainPageComponent } from './components/views/landing-page/main-page/mai
 import { AboutComponent } from './components/views/landing-page/about/about.component';
 import { BaseAuthComponent } from './components/views/auth/layout/base-auth/base-auth.component';
 import { LoginComponent } from './components/views/auth/login/login.component';
+import { SignUpComponent } from './components/views/auth/sign-up/sign-up.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path:'login',
         component: LoginComponent
+      },
+      {
+        path: 'signup',
+        component: SignUpComponent
       }
     ]
   },
