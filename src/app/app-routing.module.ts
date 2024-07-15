@@ -4,6 +4,8 @@ import { ErrorPageComponent } from './components/views/error/error-page.componen
 import { LandingBaseComponent } from './components/views/landing-page/layout/base/landing-base.component';
 import { MainPageComponent } from './components/views/landing-page/main-page/main-page.component';
 import { AboutComponent } from './components/views/landing-page/about/about.component';
+import { BaseAuthComponent } from './components/views/auth/layout/base-auth/base-auth.component';
+import { LoginComponent } from './components/views/auth/login/login.component';
 
 const routes: Routes = [
   {
@@ -17,6 +19,16 @@ const routes: Routes = [
       {
         path: 'about',
         component: AboutComponent
+      }
+    ]
+  },
+  {
+    path:'auth',
+    component: BaseAuthComponent,
+    children:[
+      {
+        path:'login',
+        component: LoginComponent
       }
     ]
   },

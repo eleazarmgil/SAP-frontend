@@ -1,0 +1,27 @@
+// Variables
+$primary-color: #2E3C4D;
+$secondary-color: #6c757d;
+$bg-color: #ffffff;
+$font-family: "Inter", sans-serif;
+
+p {
+  font-family: $font-family;
+}
+
+// Global Styles
+body {
+  font-family: $font-family;
+  background-color: $bg-color;
+}
+
+.main-wrapper{
+  display: flex;
+  height: 100vh;
+  .sidebar-content{
+    flex: 0 0 50%;
+    height: 100%;
+  }
+  .page-wrapper{
+    flex: 0 0 50%;
+  }
+}
