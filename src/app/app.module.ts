@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from './components/layout/layout.module';
 import { LandingPageModule } from './components/views/landing-page/landing-page.module';
+import { LayoutAuthModule } from './components/views/auth/layout/layout-auth.module';
+import { LandingLayoutModule } from './components/views/landing-page/layout/landing-layout.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { LandingPageModule } from './components/views/landing-page/landing-page.
     RouterModule,
     AppRoutingModule,
     LandingPageModule,
-    LayoutModule
+    LandingLayoutModule,
+    LayoutModule,
+    LayoutAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,30 @@
+// Variables
+$primary-color: #2E3C4D;
+$secondary-color: #6c757d;
+$bg-color: #ffffff;
+$font-family: "Inter", sans-serif;
+
+p{
+  color:#FFFFFF;
+}
+
+.side-content{
+  background-color: $primary-color;
+  height: 100%;
+  align-items: center;
+  .main-side{
+
+  }
+  .text-content{
+    text-align: center;
+  }
+  .image-content{
+    width: 100%;
+    text-align: center;
+    img{
+      padding: 1rem;
+      width: 80%;
+      height: auto;
+    }
+  }
+}
