@@ -14,16 +14,40 @@ body {
   background-color: $bg-color;
 }
 
-.main-wrapper{
+.main-wrapper {
   display: flex;
   height: 100vh;
-  .sidebar-content{
+
+  .sidebar-content {
     flex: 0 0 50%;
   }
-  .page-wrapper{
+
+  .page-wrapper {
     flex: 0 0 50%;
-    .page-content{
-      height: 100vh;
+
+    .page-content {
+      height: 100%;
     }
   }
 }
+
+@media (max-width: 768px) {
+  .main-wrapper {
+    flex-direction: column;
+
+
+    .sidebar-content,
+    .page-wrapper {
+      flex: 0 0 auto;
+    }
+
+    .sidebar-content {
+      height: 15%;
+    }
+
+    .page-wrapper {
+      height: 85%;
+    }
+  }
+}
+
