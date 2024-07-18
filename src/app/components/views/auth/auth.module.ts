@@ -5,12 +5,14 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LayoutAuthModule } from './layout/layout-auth.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LayoutAuthModule,
   ],
   exports: [
-    LoginComponent, SignUpComponent
+    LoginComponent, SignUpComponent, ResetPasswordComponent
   ]
 })
 export class AuthModule { }

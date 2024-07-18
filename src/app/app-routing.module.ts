@@ -7,6 +7,7 @@ import { AboutComponent } from './components/views/landing-page/about/about.comp
 import { BaseAuthComponent } from './components/views/auth/layout/base-auth/base-auth.component';
 import { LoginComponent } from './components/views/auth/login/login.component';
 import { SignUpComponent } from './components/views/auth/sign-up/sign-up.component';
+import { ResetPasswordComponent } from './components/views/auth/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
       {
         path: 'signup',
         component: SignUpComponent
+      },
+      {
+        path: 'reset-password',
+        component: ResetPasswordComponent
       }
     ]
   },
