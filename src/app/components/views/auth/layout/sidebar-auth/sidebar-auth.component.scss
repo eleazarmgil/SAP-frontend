@@ -11,8 +11,11 @@ body {
 }
 
 .side-content {
-  background-color: $primary-color;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url("src/assets/images/auth-page/main-image.jpg");
   height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -20,18 +23,10 @@ body {
   .main-side {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 2rem;
-
-    .image-content {
-      width: 100%;
-      text-align: center;
-
-      img {
-        max-width: 80%;
-        height: auto;
-      }
-    }
+    height: 85%;
 
     .text-content {
       a {
@@ -42,11 +37,40 @@ body {
       }
     }
   }
+}
 
-  .footer-content {
-    background-color: $secondary-color;
-    padding: 1rem;
-    text-align: center;
-    color: $bg-color;
+@media (max-width: 768px) {
+  .side-content {
+    .main-side {
+      padding: 1rem;
+
+      .text-content {
+        a {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .footer-content {
+      padding: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .side-content {
+    .main-side {
+      padding: 0.5rem;
+
+      .text-content {
+        a {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .footer-content {
+      padding: 0.25rem;
+    }
   }
 }
