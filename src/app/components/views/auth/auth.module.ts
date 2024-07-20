@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LayoutAuthModule } from './layout/layout-auth.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
@@ -18,6 +18,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     CommonModule,
     ReactiveFormsModule,
     LayoutAuthModule,
+    FormsModule
   ],
   exports: [
     LoginComponent, SignUpComponent, ResetPasswordComponent
