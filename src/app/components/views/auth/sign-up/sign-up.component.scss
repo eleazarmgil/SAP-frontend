@@ -1,0 +1,212 @@
+// Variables
+$primary-color: #2E3C4D;
+$secondary-color: #6c757d;
+$bg-color: #ffffff;
+$font-family: "Inter", sans-serif;
+
+
+.footer-content {
+  position: absolute;
+  bottom: 0;
+}
+
+.error-message {
+  color: red;
+}
+
+.form-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+
+  .title-section {
+    margin-bottom: 2rem;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+
+    .h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      max-width: 100%;
+    }
+  }
+}
+
+
+.form-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  .input-section-checkbox {
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+
+
+
+    label {
+      font-size: 1rem;
+    }
+
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      width: 16px;
+      height: 16px;
+      border: 2px solid $primary-color;
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:checked {
+        background-color: $primary-color;
+        border-color: $primary-color;
+
+        &:after {
+          content: "\2713";
+          display: block;
+          color: #fff;
+          text-align: center;
+          font-size: 12px;
+          line-height: 14px;
+        }
+      }
+    }
+  }
+
+  .input-section {
+    margin-bottom: 1rem;
+    width: 100%;
+
+    input {
+      padding: 0.8rem 1rem;
+      border: 1px solid $secondary-color;
+      border-radius: 4px;
+      font-size: 1rem;
+      width: 90%;
+
+      &::placeholder {
+        color: $secondary-color;
+      }
+    }
+  }
+
+  .button-section {
+    button {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background-color: $primary-color;
+      color: $bg-color;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+}
+
+.link-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+
+  .link-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    p {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+
+// Responsive Styles
+@media (max-width: 767px) {
+  .form-content {
+    height: 100%;
+    margin-top: 10rem;
+  }
+
+  .signup-content {
+    display: flex;
+
+    .title-section {
+      h2 {
+        font-size: 1.8rem;
+        word-break: break-word;
+      }
+    }
+
+    .form-section {
+      .input-section {
+        input {
+          font-size: 0.9rem;
+        }
+      }
+
+      .button-section {
+        button {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .link-section {
+      .link-item {
+        p {
+          font-size: 0.9rem;
+          word-break: break-word;
+        }
+
+        a {
+          font-size: 0.9rem;
+          word-break: break-word;
+        }
+      }
+    }
+  }
+
+  .footer-content {
+    position: static;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    position: absolute;
+    bottom: 0;
+  }
+
+}
