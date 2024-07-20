@@ -7,7 +7,7 @@ import { LayoutModule } from './components/layout/layout.module';
 import { LandingPageModule } from './components/views/landing-page/landing-page.module';
 import { LayoutAuthModule } from './components/views/auth/layout/layout-auth.module';
 import { LandingLayoutModule } from './components/views/landing-page/layout/landing-layout.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from './components/views/auth/auth.module';
 
 @NgModule({
@@ -18,6 +18,7 @@ import { AuthModule } from './components/views/auth/auth.module';
     BrowserModule,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule,
     AppRoutingModule,
     LandingPageModule,
     LandingLayoutModule,
