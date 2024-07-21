@@ -29,7 +29,7 @@ const routes: Routes = [
     component: BaseAuthComponent,
     children:[
       {
-        path:'login',
+        path:'',
         component: LoginComponent
       },
       {
