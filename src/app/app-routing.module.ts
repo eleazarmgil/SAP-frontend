@@ -8,6 +8,7 @@ import { BaseAuthComponent } from './components/views/auth/layout/base-auth/base
 import { LoginComponent } from './components/views/auth/login/login.component';
 import { SignUpComponent } from './components/views/auth/sign-up/sign-up.component';
 import { ResetPasswordComponent } from './components/views/auth/reset-password/reset-password.component';
+import { NewPsychologistComponent } from './components/views/auth/new-psychologist/new-psychologist.component';
 
 const routes: Routes = [
   {
@@ -34,13 +35,17 @@ const routes: Routes = [
       },
       {
         path: 'signup',
-        component: SignUpComponent
+        component: SignUpComponent,
       },
       {
         path: 'reset-password',
         component: ResetPasswordComponent
       }
     ]
+  },
+  {
+    path:'auth/signup/psychologist',
+    component:NewPsychologistComponent
   },
   {
     path: 'error',
