@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { lastIndexOf } from 'cypress/types/lodash';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,7 +13,7 @@ export class SignUpComponent {
   isPsychologist: boolean = false;
   signUpForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private location:Location) {
     this.signUpForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
@@ -40,6 +40,11 @@ export class SignUpComponent {
   onSubmit() {
     if (this.signUpForm.valid) {
       console.log("Form valido "+this.isPsychologist);
+      if(this.isPsychologist){
+        this.location.back();
+        this.location.go('/auth/signup/psychologist');
+      }
+
     }else{
       console.error("Form not valid")
     }
