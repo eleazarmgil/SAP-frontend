@@ -1,1 +1,85 @@
-<p>new-psychologist works!</p>
+<div class="main-content">
+  <div class="left-component">
+    <div class="title">
+      <p>Registrar Credenciales</p>
+    </div>
+    <diV class="profile-image-section">
+      <div class="profile-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOrIMVd5kJD9R76tm7oP1Bl9TJ5465C77PEw&s">
+        <button>Editar</button>
+      </div>
+      <div class="subtitle">
+        <p>Foto de perfil</p>
+      </div>
+    </diV>
+    <div class="submit-button">
+      <button>Continuar</button>
+    </div>
+
+  </div>
+  <div class="right-component">
+    <div class="form-item">
+      <div class="form-title">
+        <p>Imagen de título universitario</p>
+      </div>
+      <div class="form-input">
+        <input type="file">
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="form-input">
+        <input type="text" placeholder="Número de Colegiatura">
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="form-title">
+        <p>Teléfono Personal</p>
+      </div>
+      <div class="form-input">
+        <select class="pre-input">
+          <option value="0412">0412</option>
+          <option value="0412">0414</option>
+          <option value="0412">0416</option>
+          <option value="0412">0424</option>
+          <option value="0412">0426</option>
+        </select>
+        <input type="number" placeholder="1234567">
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="form-title">
+        <p>Teléfono de Oficina</p>
+      </div>
+      <div class="form-input">
+        <select class="pre-input">
+          <option *ngFor="let areaCode of venezuelaAreaCodes" [value]="areaCode">0{{ areaCode }}</option>
+        </select>
+        <input type="number" placeholder="1234567">
+      </div>
+    </div>
+
+    <div class="form-large-item">
+      <div class="form-title">
+        <p>Dirección de Oficina</p>
+      </div>
+      <div class="form-input">
+        <div class="city-input">
+          <select class="large-pre-input">
+            <option value=""></option>
+            <option *ngFor="let state of venezuelaStates" (change)="onStateSelected(state)" [value]="state.name">{{state.name}}</option>
+          </select>
+          <select class="large-post-input">
+            <option *ngFor="let parish of selectedState.parishes">{{parish.name}}</option>
+          </select>
+        </div>
+
+        <textarea class="large-input" rows="3" placeholder="Dirección detallada"></textarea>
+
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+<p>{{selectedState.name}}1</p>
