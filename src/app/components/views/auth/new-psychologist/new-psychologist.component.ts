@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmSignupComponent } from 'src/app/components/popups/confirm-signup/confirm-signup.component';
 
 interface Parish {
   name: string;
@@ -16,6 +18,7 @@ interface State {
 })
 export class NewPsychologistComponent {
 
+  constructor(public dialog:MatDialog){}
   selectedState: State = { name: "", parishes: [] };
   venezuelaAreaCodes: number[] = [
     // Amazonas
@@ -285,8 +288,15 @@ export class NewPsychologistComponent {
     // Agrega más estados y sus parroquias aquí
   ];
 
-  onStateSelected(state: State) {
-    console.log("seleccionado: "+state.name);
-    this.selectedState = state;
-  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ConfirmSignupComponent, {
+      width: '250px',
+      data: {name: 'Angular'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+    });
+}
 }
