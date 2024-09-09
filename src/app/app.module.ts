@@ -9,6 +9,8 @@ import { LayoutAuthModule } from './components/views/auth/layout/layout-auth.mod
 import { LandingLayoutModule } from './components/views/landing-page/layout/landing-layout.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from './components/views/auth/auth.module';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,12 @@ import { AuthModule } from './components/views/auth/auth.module';
     LandingLayoutModule,
     LayoutModule,
     LayoutAuthModule,
-    AuthModule
+    AuthModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
