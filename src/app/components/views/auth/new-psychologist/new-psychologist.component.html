@@ -6,7 +6,7 @@
     <diV class="profile-image-section">
       <div class="profile-image">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOrIMVd5kJD9R76tm7oP1Bl9TJ5465C77PEw&s">
-        <button>Editar</button>
+        <button mat-raised-button (click)="openDialog()">Abrir Modal</button>
       </div>
       <div class="subtitle">
         <p>Foto de perfil</p>
@@ -66,7 +66,7 @@
         <div class="city-input">
           <select class="large-pre-input">
             <option value=""></option>
-            <option *ngFor="let state of venezuelaStates" (change)="onStateSelected(state)" [value]="state.name">{{state.name}}</option>
+            <option *ngFor="let state of venezuelaStates" [value]="state.name">{{state.name}}</option>
           </select>
           <select class="large-post-input">
             <option *ngFor="let parish of selectedState.parishes">{{parish.name}}</option>
@@ -82,3 +82,5 @@
 
   </div>
 </div>
+
+
