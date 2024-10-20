@@ -1,0 +1,22 @@
+.page-wrapper {
+  margin-left: 250px;
+  transition: margin-left 0.3s ease; /* Añade la transición */
+}
+
+.page-wrapper.retracted {
+  margin-left: 80px;
+}
+
+@media (max-width: 768px) {
+  .page-wrapper {
+    margin-left: 200px; // Reduce width on smaller screens
+
+    &.retracted {
+      margin-left: 60px; // Adjusted width for mobile
+    }
+  }
+}
+
+.page-content{
+  width: 100%;
+}
