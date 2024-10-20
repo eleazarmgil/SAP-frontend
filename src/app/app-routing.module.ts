@@ -11,6 +11,7 @@ import { ResetPasswordComponent } from './components/views/auth/reset-password/r
 import { NewPsychologistComponent } from './components/views/auth/new-psychologist/new-psychologist.component';
 import { AdminBaseComponent } from './components/views/app/admin/layout/base/base.component';
 import { AdminProfileComponent } from './components/views/app/admin/profile/profile.component';
+import { ReadUserComponent } from './components/views/app/admin/users/read-user/read-user.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
       {
         path:'profile',
         component:AdminProfileComponent
+      },
+      {
+        path:'users',
+        component: ReadUserComponent
       }
     ]
   },
