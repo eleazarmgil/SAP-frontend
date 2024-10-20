@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from './components/views/auth/auth.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { LayoutAdminModule } from './components/views/app/admin/layout/admin-layout.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     LandingLayoutModule,
     LayoutModule,
     LayoutAuthModule,
+    LayoutAdminModule,
     AuthModule,
     MatDialogModule
   ],

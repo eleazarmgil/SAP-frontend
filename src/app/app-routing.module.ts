@@ -9,6 +9,8 @@ import { LoginComponent } from './components/views/auth/login/login.component';
 import { SignUpComponent } from './components/views/auth/sign-up/sign-up.component';
 import { ResetPasswordComponent } from './components/views/auth/reset-password/reset-password.component';
 import { NewPsychologistComponent } from './components/views/auth/new-psychologist/new-psychologist.component';
+import { AdminBaseComponent } from './components/views/app/admin/layout/base/base.component';
+import { AdminProfileComponent } from './components/views/app/admin/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -46,6 +48,16 @@ const routes: Routes = [
   {
     path:'auth/signup/psychologist',
     component:NewPsychologistComponent
+  },
+  {
+    path:'admin',
+    component:AdminBaseComponent,
+    children:[
+      {
+        path:'profile',
+        component:AdminProfileComponent
+      }
+    ]
   },
   {
     path: 'error',
