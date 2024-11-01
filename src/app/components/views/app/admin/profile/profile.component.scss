@@ -1,3 +1,82 @@
-p{
-  margin:0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.content{
+  padding: 20px;
+}
+
+.main-block {
+  text-align: center;
+  margin-bottom: 2rem;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url("src/assets/images/landing-page/cover-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .main-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FFFFFF;
+  }
+
+  .block-title {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+  }
+}
+
+
+.edit-profile {
+  width: 50%;
+  display: flex;
+  align-items: flex-start;
+
+  .profile {
+    width: 30%;
+    margin-right: 20px;
+
+    .image-profile {
+      position: relative;
+
+      img {
+        width: 100%;
+        border-radius: 50%;
+      }
+
+      .edit-photo {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .options {
+    width: 70%;
+
+    .list-options {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+    }
+  }
 }
