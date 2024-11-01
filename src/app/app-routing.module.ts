@@ -13,6 +13,10 @@ import { AdminBaseComponent } from './components/views/app/admin/layout/base/bas
 import { AdminProfileComponent } from './components/views/app/admin/profile/profile.component';
 import { ReadUserComponent } from './components/views/app/admin/users/read-user/read-user.component';
 import { UpdateUserComponent } from './components/views/app/admin/users/update-user/update-user.component';
+import { AdminResetPasswordComponent } from './components/views/app/admin/profile/reset-password/reset-password.component';
+import { AdminUpdateEmailComponent } from './components/views/app/admin/profile/update-email/update-email.component';
+import { AdminUpdateCredentialsComponent } from './components/views/app/admin/profile/update-credentials/update-credentials.component';
+import { AdminUpdateUsernameComponent } from './components/views/app/admin/profile/update-username/update-username.component';
 
 const routes: Routes = [
   {
@@ -57,7 +61,25 @@ const routes: Routes = [
     children:[
       {
         path:'profile',
-        component:AdminProfileComponent
+        component:AdminProfileComponent,
+        children:[
+          {
+            path:'update-password',
+            component: AdminResetPasswordComponent
+          },
+          {
+            path:'update-email',
+            component: AdminUpdateEmailComponent
+          },
+          {
+            path:'update-credentials',
+            component: AdminUpdateCredentialsComponent
+          },
+          {
+            path:'update-username',
+            component: AdminUpdateUsernameComponent
+          }
+        ]
       },
       {
         path:'users',
