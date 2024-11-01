@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './update-email.component.html',
   styleUrl: './update-email.component.css'
 })
-export class UpdateEmailComponent {
+export class AdminUpdateEmailComponent {
 
 }
