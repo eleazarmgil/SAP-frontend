@@ -16,7 +16,6 @@ export class AdminSidebarComponent implements OnInit {
   showUsername = true;
   name = "Usuario"; // Cambiar esto al nombre real del usuario
   menuItems: MenuItem[] = [
-    { label: 'Inicio', link: '/admin/home', icon: 'home' },
     { label: 'Perfil', link: '/admin/profile', icon: 'settings' },
     { label: 'Control de Usuarios', link: '/admin/users', icon: 'user' },
     { label: 'Control de Contenido', link: '/admin/content', icon: 'settings' },
