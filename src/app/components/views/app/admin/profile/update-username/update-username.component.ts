@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './update-username.component.html',
   styleUrl: './update-username.component.css'
 })
-export class UpdateUsernameComponent {
+export class AdminUpdateUsernameComponent {
 
 }
