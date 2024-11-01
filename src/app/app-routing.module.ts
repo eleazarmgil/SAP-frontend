@@ -12,6 +12,7 @@ import { NewPsychologistComponent } from './components/views/auth/new-psychologi
 import { AdminBaseComponent } from './components/views/app/admin/layout/base/base.component';
 import { AdminProfileComponent } from './components/views/app/admin/profile/profile.component';
 import { ReadUserComponent } from './components/views/app/admin/users/read-user/read-user.component';
+import { UpdateUserComponent } from './components/views/app/admin/users/update-user/update-user.component';
 
 const routes: Routes = [
   {
@@ -61,7 +62,11 @@ const routes: Routes = [
       {
         path:'users',
         component: ReadUserComponent
-      }
+      },
+      {
+        path:'users/:id',
+        component: UpdateUserComponent
+      },
     ]
   },
   {
