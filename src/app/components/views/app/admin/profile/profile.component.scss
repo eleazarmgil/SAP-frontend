@@ -1,6 +1,7 @@
 .edit-profile {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin: 0 auto;
   align-items: center;
   padding: 20px;
   background-color: #f5f5f5;
@@ -8,6 +9,7 @@
   .profile {
     display: flex;
     align-items: center;
+    margin-right: 20px;
 
     .image-profile {
       position: relative;
@@ -41,6 +43,7 @@
   }
 
   .options {
+    margin-left: 20px;
     .list-options {
       list-style-type: none;
       padding: 0;
