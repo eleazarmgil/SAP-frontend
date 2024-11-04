@@ -17,6 +17,7 @@ import { AdminResetPasswordComponent } from './components/views/app/admin/profil
 import { AdminUpdateEmailComponent } from './components/views/app/admin/profile/update-email/update-email.component';
 import { AdminUpdateCredentialsComponent } from './components/views/app/admin/profile/update-credentials/update-credentials.component';
 import { AdminUpdateUsernameComponent } from './components/views/app/admin/profile/update-username/update-username.component';
+import { ContentComponent } from './components/views/app/admin/content/content.component';
 
 const routes: Routes = [
   {
@@ -80,6 +81,10 @@ const routes: Routes = [
             component: AdminUpdateUsernameComponent
           }
         ]
+      },
+      {
+        path:'content',
+        component: ContentComponent
       },
       {
         path:'users',
