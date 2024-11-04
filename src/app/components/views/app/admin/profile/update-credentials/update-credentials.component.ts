@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './update-credentials.component.html',
-  styleUrl: './update-credentials.component.css'
+  styleUrl: './update-credentials.component.scss'
 })
 export class AdminUpdateCredentialsComponent {
 
