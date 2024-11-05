@@ -18,6 +18,8 @@ import { AdminUpdateEmailComponent } from './components/views/app/admin/profile/
 import { AdminUpdateCredentialsComponent } from './components/views/app/admin/profile/update-credentials/update-credentials.component';
 import { AdminUpdateUsernameComponent } from './components/views/app/admin/profile/update-username/update-username.component';
 import { ContentComponent } from './components/views/app/admin/content/content.component';
+import { ReadContentComponent } from './components/views/app/admin/content/read-content/read-content.component';
+import { AddContentComponent } from './components/views/app/admin/content/add-content/add-content.component';
 
 const routes: Routes = [
   {
@@ -84,7 +86,17 @@ const routes: Routes = [
       },
       {
         path:'content',
-        component: ContentComponent
+        component: ContentComponent,
+        children:[
+          {
+            path:'view',
+            component: ReadContentComponent
+          },
+          {
+            path:'new',
+            component:AddContentComponent
+          }
+        ]
       },
       {
         path:'users',
