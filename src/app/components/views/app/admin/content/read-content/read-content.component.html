@@ -1,0 +1,28 @@
+<div class="user-table">
+  <div class="add-content">
+    <button class="new-button" (click)="addContent()">Nuevo+</button>
+  </div>
+  <div class="search-block">
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar">
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let content of contents">
+        <td>{{ content.name }}</td>
+        <td>
+          <button class="button-read" (click)="viewUser(content)">Ver</button>
+          <button class="button-delete" (click)="deleteUser(content.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -18,8 +18,8 @@ export class AdminSidebarComponent implements OnInit {
   menuItems: MenuItem[] = [
     { label: 'Perfil', link: '/admin/profile', icon: 'settings' },
     { label: 'Control de Usuarios', link: '/admin/users', icon: 'user' },
-    { label: 'Control de Contenido', link: '/admin/content', icon: 'settings' },
-    { label: 'Cerrar Sesión', link: '/logout', icon: 'log-out' },
+    { label: 'Control de Contenido', link: '/admin/content/view', icon: 'settings' },
+    { label: 'Cerrar Sesión', link: '', icon: 'log-out' },
   ];
 
   @Output() sidebarStateChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
