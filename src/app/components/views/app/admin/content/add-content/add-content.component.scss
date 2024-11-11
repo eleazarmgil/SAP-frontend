@@ -1,0 +1,61 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+
+  .title-section {
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .input-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      label {
+        font-weight: bold;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+    }
+  }
+
+  .info-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .date-section {
+      p {
+        margin: 0;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .button-section {
+    display: flex;
+    justify-content: flex-end;
+
+    .confirm-button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}
