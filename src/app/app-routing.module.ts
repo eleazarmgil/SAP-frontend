@@ -20,6 +20,7 @@ import { AdminUpdateUsernameComponent } from './components/views/app/admin/profi
 import { ContentComponent } from './components/views/app/admin/content/content.component';
 import { ReadContentComponent } from './components/views/app/admin/content/read-content/read-content.component';
 import { AddContentComponent } from './components/views/app/admin/content/add-content/add-content.component';
+import { UpdateContentComponent } from './components/views/app/admin/content/update-content/update-content.component';
 
 const routes: Routes = [
   {
@@ -95,6 +96,10 @@ const routes: Routes = [
           {
             path:'new',
             component:AddContentComponent
+          },
+          {
+            path:':id',
+            component:UpdateContentComponent
           }
         ]
       },
