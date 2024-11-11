@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 interface Content {
   id: number;
   name: string;
@@ -9,7 +9,7 @@ interface Content {
 @Component({
   selector: 'app-read-content',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './read-content.component.html',
   styleUrl: './read-content.component.scss'
 })
