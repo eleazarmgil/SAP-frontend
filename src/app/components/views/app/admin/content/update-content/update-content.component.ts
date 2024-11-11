@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './update-content.component.html',
-  styleUrl: './update-content.component.css'
+  styleUrl: './update-content.component.scss'
 })
 export class UpdateContentComponent {
 
