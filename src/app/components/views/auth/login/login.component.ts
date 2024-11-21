@@ -27,8 +27,17 @@ export class LoginComponent {
       .subscribe(  
 
         (response) => {
-          // Handle successful login, e.g., store tokens, redirect to a protected area
-          console.log('Login successful:', response);
+          if (response.isSuccess) {
+            // Guarda el token y la información del usuario en localStorage
+            localStorage.setItem('token', response.result.token);
+            localStorage.setItem('user', JSON.stringify(response.result.usuario));
+
+            console.log('Login successful:', response);
+            // Aquí puedes redirigir a una página protegida o realizar otra acción
+          } else {
+            // Manejar errores si isSuccess es false
+            console.error('Login failed:', response.errorMessages);
+          }
         },
         (error) => {
           // Handle login errors, e.g., display error message
