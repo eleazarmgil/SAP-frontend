@@ -7,6 +7,7 @@ import { LayoutAuthModule } from './layout/layout-auth.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { NewPsychologistComponent } from './new-psychologist/new-psychologist.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { NewPsychologistComponent } from './new-psychologist/new-psychologist.co
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     ReactiveFormsModule,
     LayoutAuthModule,
     FormsModule
