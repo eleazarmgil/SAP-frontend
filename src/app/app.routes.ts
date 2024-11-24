@@ -13,6 +13,8 @@ import { ContentComponent } from './pages/content/content.component';
 import { ReadContentComponent } from './pages/content/read-content/read-content.component';
 import { UpdateContentComponent } from './pages/content/update-content/update-content.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { AuthService } from '../core/services/auth/auth.service';
+import { AuthComponent } from './pages/auth/auth.component';
 
 export const routes: Routes = [
   {
@@ -21,11 +23,11 @@ export const routes: Routes = [
   },
   {
     path:'auth',
-    component: SignInComponent,
+    component:  AuthComponent,
     children:[
       {
-        path:'signup',
-        component: SignUpComponent
+        path:'',
+        component: SignInComponent
       },
       {
         path: 'new-psychologist',
