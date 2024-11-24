@@ -25,6 +25,28 @@ export class SignInComponent {
     });
   }
 
+  ngOnInit(): void {
+    // Verifica si el usuario ya está autenticado
+    const token = localStorage.getItem('token');
+    if (token) {
+      switch(localStorage.getItem('role')){
+        case 'admin':{
+          this.router.navigate(['/admin/profile']);
+          break;
+        }
+        case 'psicologo':{
+          this.router.navigate(['psychologist']);
+          break;
+        }
+        case 'usuario':{
+          this.router.navigate(['usuario']);
+          break;
+        }
+      }
+
+    }
+  }
+
   onSubmit() {
     if (this.loginForm.valid) {
       const credentials: LoginRequest = {
@@ -37,6 +59,7 @@ export class SignInComponent {
             // Store token and user info in localStorage
             localStorage.setItem('token', response.result.token);
             localStorage.setItem('user', JSON.stringify(response.result.usuario));
+            localStorage.setItem('role', response.result.role)
 
             console.log('Login successful:', response);
             this.redirectUser(response.result.role);
