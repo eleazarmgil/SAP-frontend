@@ -25,6 +25,12 @@
               <span class="link-title" *ngIf="!isSidebarRetracted">{{ item.label }}</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" id="logout" (click)="logout()">
+              <i class="link-icon" ></i>
+              <span class="link-title" *ngIf="!isSidebarRetracted">Cerrar sesión</span>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { User } from '../../../core/models/login-response.model';
+import { AuthService } from '../../../core/services/auth/auth.service';
 
 interface MenuItem {
   label: string;
@@ -27,15 +28,18 @@ export class AdminComponent {
   menuItems: MenuItem[] = [
     { label: 'Perfil', link: '/admin/profile', icon: 'settings' },
     { label: 'Control de Usuarios', link: '/admin/users', icon: 'user' },
-    { label: 'Control de Contenido', link: '/admin/content', icon: 'settings' },
-    { label: 'Cerrar Sesión', link: '/logout', icon: 'log-out' },
+    { label: 'Control de Contenido', link: '/admin/content', icon: 'settings' }
   ];
 
-  constructor() {}
+  constructor(private route: Router, private authService:AuthService) {}
 
   ngOnInit(): void {}
 
   toggleSidebar(): void {
     this.isSidebarRetracted = !this.isSidebarRetracted;
+  }
+
+  logout(){
+    this.authService.logout();
   }
 }
