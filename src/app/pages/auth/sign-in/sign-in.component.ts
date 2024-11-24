@@ -6,6 +6,7 @@ import { ErrorResponse } from '../../../../core/models/error-response.model';
 import { AuthService } from '../../../../core/services/auth/auth.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 export class SignInComponent {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router:Router) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
