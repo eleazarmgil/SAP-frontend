@@ -39,7 +39,7 @@ export class SignInComponent {
             localStorage.setItem('user', JSON.stringify(response.result.usuario));
 
             console.log('Login successful:', response);
-            // Redirect or perform another action here
+            this.redirectUser(response.result.role);
           } else {
             // Handle errors if isSuccess is false
             console.error('Login failed:', response.errorMessages);
@@ -50,6 +50,16 @@ export class SignInComponent {
           console.error('Login error:', error);
         }
       );
+    }
+  }
+
+  private redirectUser(role: string) {
+    if (role === 'admin') {
+      this.router.navigate(['/admin/profile']); // Ruta para administradores
+    } else if (role === 'psychologist') {
+      this.router.navigate(['/psychologist/profile']); // Ruta para psicólogos
+    } else {
+      this.router.navigate(['/user/profile']); // Ruta para usuarios normales
     }
   }
 }
