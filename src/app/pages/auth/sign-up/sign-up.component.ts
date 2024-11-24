@@ -40,6 +40,28 @@ export class SignUpComponent {
     return null;
   }
 
+  ngOnInit(): void {
+    // Verifica si el usuario ya está autenticado
+    const token = localStorage.getItem('token');
+    if (token) {
+      switch(localStorage.getItem('role')){
+        case 'admin':{
+          this.router.navigate(['/admin/profile']);
+          break;
+        }
+        case 'psicologo':{
+          this.router.navigate(['psychologist']);
+          break;
+        }
+        case 'usuario':{
+          this.router.navigate(['usuario']);
+          break;
+        }
+      }
+
+    }
+  }
+
   onSubmit() {
     if (this.signUpForm.valid) {
       const credentials: RegisterRequest = {
