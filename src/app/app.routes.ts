@@ -30,8 +30,8 @@ export const routes: Routes = [
         component: SignInComponent
       },
       {
-        path: 'new-psychologist',
-        component:  NewPsychologistComponent,
+        path:'signup',
+        component: SignUpComponent
       }
     ]
   },
