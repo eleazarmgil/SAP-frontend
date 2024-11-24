@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Location } from '@angular/common';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule, Location } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { LayoutAuthModule } from '../layout/layout-auth.module';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.scss'
+  styleUrl: './sign-up.component.scss',
+  standalone: true,
+  imports: [CommonModule, RouterLink, RouterOutlet, FormsModule, ReactiveFormsModule, LayoutAuthModule]
 })
 
 
