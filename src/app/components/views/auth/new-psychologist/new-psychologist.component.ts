@@ -1,5 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { ConfirmSignupComponent } from 'src/app/components/popups/confirm-signup/confirm-signup.component';
 
 interface Parish {
@@ -14,7 +17,9 @@ interface State {
 @Component({
   selector: 'app-new-psychologist',
   templateUrl: './new-psychologist.component.html',
-  styleUrl: './new-psychologist.component.scss'
+  styleUrl: './new-psychologist.component.scss',
+  standalone: true,
+  imports:[CommonModule, RouterLink, RouterOutlet, FormsModule]
 })
 export class NewPsychologistComponent {
 
