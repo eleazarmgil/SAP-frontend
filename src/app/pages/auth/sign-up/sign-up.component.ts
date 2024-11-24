@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RegisterRequest } from '../../../../core/models/register-request.model';
+import { AuthService } from '../../../../core/services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,7 +16,7 @@ export class SignUpComponent {
   isPsychologist: boolean = false;
   signUpForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
     this.signUpForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
@@ -39,13 +42,29 @@ export class SignUpComponent {
 
   onSubmit() {
     if (this.signUpForm.valid) {
-      console.log("Form valido "+this.isPsychologist);
-      if(this.isPsychologist){
+      const credentials: RegisterRequest = {
+        email: this.signUpForm.value.email,
+        nombre: this.signUpForm.value.firstName,
+        apellido: this.signUpForm.value.lastName,
+        password: this.signUpForm.value.password,
+        role: this.isPsychologist ? 'psicologo' : 'usuario',
+        ciudadId: 1
+      };
 
-      }
+      this.authService.register(credentials).subscribe(
+        (response) => {
+          // Maneja la respuesta exitosa
+          console.log('Registro exitoso:', response);
+          this.router.navigate(['/auth'])
 
-    }else{
-      console.error("Form not valid")
+        },
+        (error) => {
+          // Maneja el error
+          console.error('Error en el registro:', error);
+        }
+      );
+    } else {
+      console.error('Formulario no válido');
     }
   }
 }
