@@ -12,13 +12,14 @@ import { NavigationService } from '../../../core/services/navigation/navigation.
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
-  constructor(private navigationService:NavigationService){}
+  constructor(private storageService:StorageService, private navigationService:NavigationService){}
 
-  redirectUpdateEmail(){
-    this.navigationService.redirectUpdateEmail();
+  isPsychologist:boolean=false;
+
+  OnInit(){
+    if(this.storageService.getItem('role')=='psicologo'){
+      this.isPsychologist=true;
+    }
   }
 
-  redirectResetPassword(){
-    this.navigationService.redirectResetPassword();
-  }
 }

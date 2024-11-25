@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
 import { UpdateUserRequest } from '../../models/update-user-request.model';
+import { environment } from '../../../app/environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, EMPTY } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  updateEmail(email: string) {
+  private apiUrl = environment.apiUrl; // URL de la API desde el entorno
+
+  updateEmail(email: string): Observable<any> {
     // Extraer datos de localStorage
     const userString = localStorage.getItem('user');
     const token = localStorage.getItem('token');
-    const role = localStorage.getItem('role');
 
     // Verificar si el usuario existe en localStorage
     if (userString) {
@@ -26,15 +31,20 @@ export class ProfileService {
         email: email,
         nombre: userName,
         apellido: userSurname,
-        telefonOficina: user.telefonOficina || '',
-        ciudadId: user.ciudadId || 0
+        telefonOficina: user.telefonOficina,
+        ciudadId: user.ciudadId
       };
 
+      // Configurar encabezados
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}` // Agregar el token Bearer
+      });
 
-      // Lógica para enviar el nuevo email al backend, por ejemplo:
-      // this.httpClient.put(`${this.apiUrl}/update-email`, { id: userId, email, token });
+      // Realizar la solicitud PATCH
+      return this.http.patch<any>(`${this.apiUrl}/usuarios/ActualizarUsuario/${data.id}`, data, { headers });
     } else {
       console.error('No user found in localStorage');
+      return EMPTY; // Retornar un observable vacío
     }
   }
 }
