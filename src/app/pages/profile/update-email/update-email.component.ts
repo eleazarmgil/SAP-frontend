@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProfileService } from '../../../../core/services/profile/profile.service';
-import { AuthInterceptor } from '../../../../core/interceptors/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StorageService } from '../../../../core/services/storage/storage.service';
 
@@ -11,13 +10,6 @@ import { StorageService } from '../../../../core/services/storage/storage.servic
   templateUrl: './update-email.component.html',
   styleUrl: './update-email.component.scss',
   standalone: true,
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
-  ],
   imports: [CommonModule, ReactiveFormsModule]
 })
 export class UpdateEmailComponent implements OnInit {
