@@ -5,6 +5,7 @@ import { RegisterRequest } from '../../../../core/models/register-request.model'
 import { AuthService } from '../../../../core/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { StorageService } from '../../../../core/services/storage/storage.service';
+import { NavigationService } from '../../../../core/services/navigation/navigation.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,7 +18,7 @@ export class SignUpComponent {
   isPsychologist: boolean = false;
   signUpForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private storageService:StorageService) {
+  constructor(private navigationService:NavigationService, private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private storageService:StorageService) {
     this.signUpForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
@@ -45,21 +46,7 @@ export class SignUpComponent {
     // Verifica si el usuario ya está autenticado
     const token = this.storageService.getItem('token');
     if (token) {
-      switch(this.storageService.getItem('role')){
-        case 'admin':{
-          this.router.navigate(['/admin/profile']);
-          break;
-        }
-        case 'psicologo':{
-          this.router.navigate(['psychologist']);
-          break;
-        }
-        case 'usuario':{
-          this.router.navigate(['usuario']);
-          break;
-        }
-      }
-
+      this.navigationService.redirectAfterAuth();
     }
   }
 

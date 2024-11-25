@@ -3,7 +3,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
 import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 import { NewPsychologistComponent } from './pages/auth/new-psychologist/new-psychologist.component';
-import { AdminComponent } from './pages/admin/admin.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ResetPasswordComponent } from './pages/profile/reset-password/reset-password.component';
 import { UpdateEmailComponent } from './pages/profile/update-email/update-email.component';
@@ -13,10 +12,9 @@ import { ContentComponent } from './pages/content/content.component';
 import { ReadContentComponent } from './pages/content/read-content/read-content.component';
 import { UpdateContentComponent } from './pages/content/update-content/update-content.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { AuthService } from '../core/services/auth/auth.service';
 import { AuthComponent } from './pages/auth/auth.component';
 import { UserControlComponent } from './pages/user-control/user-control.component';
-import { UsersComponent } from './pages/users/users.component';
+import { AppHomeComponent } from './pages/app-home/app-home.component';
 
 export const routes: Routes = [
   {
@@ -38,8 +36,8 @@ export const routes: Routes = [
     ]
   },
   {
-    path:'admin',
-    component:AdminComponent,
+    path:'app',
+    component:AppHomeComponent,
     children:[
       {
         path:'profile',
@@ -76,14 +74,11 @@ export const routes: Routes = [
             component: UpdateContentComponent
           }
         ]
+      },
+      {
+        path:'users',
+        component: UserControlComponent
       }
-    ]
-  },
-  {
-    path:'app-us',
-    component:UsersComponent,
-    children:[
-
     ]
   },
   {

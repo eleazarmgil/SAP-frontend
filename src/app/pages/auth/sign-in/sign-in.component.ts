@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { StorageService } from '../../../../core/services/storage/storage.service';
+import { NavigationService } from '../../../../core/services/navigation/navigation.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -19,7 +20,7 @@ import { StorageService } from '../../../../core/services/storage/storage.servic
 export class SignInComponent {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router:Router, private storageService: StorageService) {
+  constructor(private navigationService:NavigationService, private formBuilder: FormBuilder, private authService: AuthService, private router:Router, private storageService: StorageService) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
@@ -30,21 +31,7 @@ export class SignInComponent {
     // Verifica si el usuario ya está autenticado
     const token = this.storageService.getItem('token');
     if (token) {
-      switch(this.storageService.getItem('role')){
-        case 'admin':{
-          this.router.navigate(['/admin/profile']);
-          break;
-        }
-        case 'psicologo':{
-          this.router.navigate(['psychologist']);
-          break;
-        }
-        case 'usuario':{
-          this.router.navigate(['usuario']);
-          break;
-        }
-      }
-
+      this.router.navigate(['/app/profile']);
     }
   }
 
@@ -63,7 +50,7 @@ export class SignInComponent {
             localStorage.setItem('role', response.result.role)
 
             console.log('Login successful:', response);
-            this.redirectUser(response.result.role);
+            this.router.navigate(['/app/profile']);
           } else {
             // Handle errors if isSuccess is false
             console.error('Login failed:', response.errorMessages);
@@ -77,13 +64,4 @@ export class SignInComponent {
     }
   }
 
-  private redirectUser(role: string) {
-    if (role === 'admin') {
-      this.router.navigate(['/admin/profile']); // Ruta para administradores
-    } else if (role === 'psychologist') {
-      this.router.navigate(['/psychologist/profile']); // Ruta para psicólogos
-    } else {
-      this.router.navigate(['/user/profile']); // Ruta para usuarios normales
-    }
-  }
 }
