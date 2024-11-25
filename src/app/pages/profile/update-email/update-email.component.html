@@ -1,6 +1,12 @@
 <div class="update-email">
   <h3 class="section-title">Modificar correo electrónico</h3>
-  <p class="instructions">Por favor, ingrese el nuevo correo electrónico que desea registrar en su cuenta: </p>
-  <input type="text" placeholder="Correo electrónico">
-  <button class="confirm-button">Continuar</button>
+  <p class="instructions">Por favor, ingrese el nuevo correo electrónico que desea registrar en su cuenta:</p>
+  <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+    <input type="email" placeholder="Correo electrónico" formControlName="email">
+    <div *ngIf="emailForm.get('email')?.invalid && (emailForm.get('email')?.touched || emailForm.get('email')?.dirty)">
+      <small class="error-message" *ngIf="emailForm.get('email')?.errors?.['required']">El correo electrónico es obligatorio.</small>
+      <small class="error-message" *ngIf="emailForm.get('email')?.errors?.['email']">Por favor, ingrese un correo electrónico válido.</small>
+    </div>
+    <button type="submit" class="confirm-button">Continuar</button>
+  </form>
 </div>

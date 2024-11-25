@@ -1,41 +1,61 @@
 .update-email {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.5rem;
+  max-width: 50vw; /* Ancho máximo del formulario */
+  margin: 20px auto; /* Centra el formulario en la página */
+  padding: 20px; /* Espaciado interno */
+  border: 1px solid #ccc; /* Borde del formulario */
+  border-radius: 8px; /* Bordes redondeados */
+  background-color: #f9f9f9; /* Fondo claro */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 
   .section-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    font-size: 1.5rem; /* Tamaño de fuente mayor para el título */
+    margin-bottom: 10px; /* Espaciado inferior */
+    color: #333; /* Color del texto */
   }
 
   .instructions {
-    font-size: 1rem;
-    margin-bottom: 1rem;
+    font-size: 1rem; /* Tamaño de fuente para las instrucciones */
+    margin-bottom: 15px; /* Espaciado inferior */
+    color: #555; /* Color de texto más suave */
   }
 
-  input[type="text"] {
-    width: 100%;
-    max-width: 400px;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 1rem;
+  input[type="email"] {
+    width: 100%; /* Ancho completo */
+    padding: 10px;
+    padding-left: 0;
+    padding-right: 0; /* Espaciado interno */
+    margin-bottom: 10px; /* Espaciado inferior */
+    border: 1px solid #ccc; /* Borde del campo de entrada */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+
+    &:focus {
+      border-color: #007bff; /* Color del borde al enfocar */
+      outline: none; /* Sin contorno */
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra sutil */
+    }
   }
 
   .confirm-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color del texto */
+    font-size: 1rem; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor a puntero */
+    transition: background-color 0.3s; /* Transición suave */
 
     &:hover {
-      background-color: #45a049;
+      background-color: #0056b3; /* Color de fondo al pasar el mouse */
     }
+  }
+
+  .error-message {
+    color: red; /* Color de mensaje de error */
+    font-size: 0.875rem; /* Tamaño de fuente más pequeño */
+    margin-top: -5px; /* Espaciado negativo para alineación */
+    margin-bottom: 10px; /* Espaciado inferior */
   }
 }
