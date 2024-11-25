@@ -17,7 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/routex",
+            "outputPath": {
+              "base": "dist/sap-frontend"
+            },
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -69,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "routex:build:production"
+              "buildTarget": "SAP-frontend:build:production"
             },
             "development": {
-              "buildTarget": "routex:build:development"
+              "buildTarget": "SAP-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
