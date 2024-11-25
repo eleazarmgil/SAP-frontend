@@ -15,6 +15,8 @@ import { UpdateContentComponent } from './pages/content/update-content/update-co
 import { ErrorComponent } from './pages/error/error.component';
 import { AuthService } from '../core/services/auth/auth.service';
 import { AuthComponent } from './pages/auth/auth.component';
+import { UserControlComponent } from './pages/user-control/user-control.component';
+import { UsersComponent } from './pages/users/users.component';
 
 export const routes: Routes = [
   {
@@ -75,6 +77,13 @@ export const routes: Routes = [
           }
         ]
       }
+    ]
+  },
+  {
+    path:'app-us',
+    component:UsersComponent,
+    children:[
+
     ]
   },
   {

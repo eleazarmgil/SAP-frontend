@@ -3,12 +3,7 @@ import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { User } from '../../../core/models/login-response.model';
 import { AuthService } from '../../../core/services/auth/auth.service';
-
-interface MenuItem {
-  label: string;
-  link: string;
-  icon: string;
-}
+import { MenuItem } from '../../../core/models/menu-item.model';
 
 @Component({
   selector: 'app-admin',

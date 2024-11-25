@@ -1,1 +1,49 @@
-<p>users works!</p>
+<div class="main-wrapper">
+
+  <div class="sidebar-content">
+    <nav class="sidebar" [class.retracted]="isSidebarRetracted">
+      <div class="sidebar-header">
+        <a routerLink="/" class="sidebar-brand">
+        </a>
+        <div class="sidebar-toggler" (click)="toggleSidebar()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="user-info" *ngIf="showUsername">
+        <p>Bienvenido,</p>
+        <p><span class="username">{{ name }}</span></p>
+      </div>
+
+      <div class="sidebar-body">
+        <ul class="sidebar-nav">
+          <li class="nav-item" *ngFor="let item of menuItems">
+            <a class="nav-link" [routerLink]="item.link">
+              <i class="link-icon" [attr.data-feather]="item.icon"></i>
+              <span class="link-title" *ngIf="!isSidebarRetracted">{{ item.label }}</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="logout" (click)="logout()">
+              <i class="link-icon" ></i>
+              <span class="link-title" *ngIf="!isSidebarRetracted">Cerrar sesión</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="page-wrapper" [class.retracted]="isSidebarRetracted">
+    <div class="page-content">
+      <div contentAnimate>
+        <router-outlet></router-outlet>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
