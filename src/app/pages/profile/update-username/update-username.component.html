@@ -1,7 +1,32 @@
 <div class="update-email">
   <h3 class="section-title">Modificar nombre de usuario</h3>
-  <p class="instructions">Por favor, ingrese sus nombres </p>
-  <input type="text" placeholder="Nombres">
-  <input type="text" placeholder="Apellidos">
-  <button class="confirm-button">Continuar</button>
+  <p class="instructions">Por favor, ingrese sus nombres</p>
+
+  <form (ngSubmit)="onUpdateNameAndSurname()" [formGroup]="nameForm">
+    <div>
+      <input
+        type="text"
+        placeholder="Nombres"
+        formControlName="name"
+        class="form-input"
+      >
+      <div *ngIf="nameForm.get('name')?.invalid && nameForm.get('name')?.touched" class="error-message">
+        <small>El nombre es obligatorio.</small>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="text"
+        placeholder="Apellidos"
+        formControlName="surname"
+        class="form-input"
+      >
+      <div *ngIf="nameForm.get('surname')?.invalid && nameForm.get('surname')?.touched" class="error-message">
+        <small>El apellido es obligatorio.</small>
+      </div>
+    </div>
+
+    <button type="submit" class="confirm-button" [disabled]="nameForm.invalid || nameForm.invalid">Continuar</button>
+  </form>
 </div>

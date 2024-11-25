@@ -47,4 +47,38 @@ export class ProfileService {
       return EMPTY; // Retornar un observable vacío
     }
   }
+
+  updateUsername(name: string, surname: string): Observable<any> {
+    // Extraer datos de localStorage
+    const userString = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+
+    // Verificar si el usuario existe en localStorage
+    if (userString) {
+      const user = JSON.parse(userString); // Convertir el string a objeto
+
+      const userId = user.id;
+      const email = user.email; // Suponiendo que ya tienes el correo en el objeto
+
+      const data: UpdateUserRequest = {
+        id: userId,
+        email: email,
+        nombre: name,
+        apellido: surname,
+        telefonOficina: user.telefonOficina,
+        ciudadId: user.ciudadId
+      };
+
+      // Configurar encabezados
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}` // Agregar el token Bearer
+      });
+
+      // Realizar la solicitud PATCH
+      return this.http.patch<any>(`${this.apiUrl}/usuarios/ActualizarUsuario/${data.id}`, data, { headers });
+    } else {
+      console.error('No user found in localStorage');
+      return EMPTY; // Retornar un observable vacío
+    }
+  }
 }

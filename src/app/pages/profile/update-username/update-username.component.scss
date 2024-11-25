@@ -1,41 +1,61 @@
 .update-email {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.5rem;
+  max-width: 400px;  // Ancho máximo del contenedor
+  margin: 0 auto;    // Centrar el contenedor
+  padding: 20px;     // Espacio interior
+  border: 1px solid #ccc; // Bordes
+  border-radius: 8px; // Bordes redondeados
+  background-color: #f9f9f9; // Color de fondo
 
   .section-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;  // Tamaño de fuente para el título
+    margin-bottom: 10px; // Margen inferior
+    color: #333;        // Color del texto
   }
 
   .instructions {
-    font-size: 1rem;
-    margin-bottom: 1rem;
+    font-size: 1rem;    // Tamaño de fuente para instrucciones
+    color: #666;        // Color del texto
+    margin-bottom: 20px; // Margen inferior
   }
 
-  input[type="text"] {
-    width: 100%;
-    max-width: 400px;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 1rem;
+  .form-input {
+    width: 100%;        // Ancho completo
+    padding: 10px;      // Espaciado interior
+    margin-bottom: 15px; // Margen inferior
+    border: 1px solid #ccc; // Borde
+    border-radius: 4px; // Bordes redondeados
+    font-size: 1rem;    // Tamaño de fuente
+
+    &:focus {
+      border-color: #007bff; // Color del borde en foco
+      outline: none;         // Sin contorno
+    }
+  }
+
+  .error-message {
+    color: red;          // Color del texto de error
+    font-size: 0.875rem; // Tamaño de fuente para el mensaje de error
+    margin-top: -10px;  // Margen negativo para acercar el mensaje
+    margin-bottom: 15px; // Margen inferior
   }
 
   .confirm-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
+    width: 100%;        // Ancho completo
+    padding: 10px;      // Espaciado interior
+    background-color: #007bff; // Color de fondo del botón
+    color: white;       // Color del texto del botón
+    border: none;       // Sin borde
+    border-radius: 4px; // Bordes redondeados
+    font-size: 1rem;    // Tamaño de fuente
+    cursor: pointer;     // Cursor en forma de puntero
+    transition: background-color 0.3s; // Transición suave para el color de fondo
 
     &:hover {
-      background-color: #45a049;
+      background-color: #0056b3; // Color de fondo al pasar el cursor
+    }
+
+    &:disabled {
+      background-color: #ccc; // Color de fondo cuando está deshabilitado
     }
   }
 }
