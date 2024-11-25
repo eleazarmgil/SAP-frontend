@@ -1,0 +1,200 @@
+// Variables
+$primary-color: #2E3C4D;
+$secondary-color: #6c757d;
+$bg-color: #ffffff;
+$font-family: "Inter", sans-serif;
+
+.main-content {
+  font-family: $font-family;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $bg-color;
+
+  .left-component {
+    background-color: $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: $bg-color;
+    width: 50%;
+    height: 100%;
+
+    .title {
+      font-size: 2rem;
+      margin-bottom: 24px;
+    }
+
+    .profile-image-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 40%;
+      margin-bottom: 24px;
+
+      .profile-image {
+        position: relative;
+        width: 40%;
+        height: auto;
+
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          border-radius: 50%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        button {
+          position: absolute;
+          bottom: 10px;
+          right: 10px;
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+      }
+
+      .subtitle {
+        font-size: 1.4rem;
+      }
+    }
+
+    .submit-button {
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 12px 24px;
+        font-size: 16px;
+        cursor: pointer;
+        width: 100%;
+      }
+    }
+  }
+
+  .right-component {
+    height: 100%;
+    background-color: $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    width: 50%;
+
+    .form-item {
+      margin-bottom: 1rem;
+      width: 40%;
+
+      .form-title {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .form-input {
+        display: flex;
+        align-items: center;
+
+
+        input {
+          flex-grow: 1;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 0.5rem 0.8rem;
+          font-size: 1rem;
+          width: 100%;
+
+          &::placeholder {
+            color: #999;
+          }
+        }
+
+        .pre-input {
+          margin-right: 8px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 8px 12px;
+          font-size: 16px;
+          background-color: #f5f5f5;
+        }
+      }
+    }
+
+    .form-large-item {
+      margin-bottom: 24px;
+      width: 40%;
+
+      .form-title {
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+
+      .form-input {
+        .city-input {
+          display: flex;
+          width: 100%;
+          margin-bottom: 8px;
+
+          .large-pre-input{
+            width: 40%;
+            margin-right: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 16px;
+            background-color: #f5f5f5;
+          }
+          .large-post-input {
+            width: 60%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 16px;
+            background-color: #f5f5f5;
+          }
+        }
+
+
+        .large-input {
+          width: 94%;
+          padding: 10px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          resize: none; // Permite redimensionar verticalmente
+          overflow-y: auto; // Agrega barras de desplazamiento si es necesario
+        }
+
+        input {
+          flex-grow: 1;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 8px 12px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Elimina las flechas en Firefox */
+input[type=number] {
+  appearance: textfield;
+}
