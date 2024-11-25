@@ -4,6 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 import { User } from '../../../core/models/login-response.model';
 import { AuthService } from '../../../core/services/auth/auth.service';
 import { MenuItem } from '../../../core/models/menu-item.model';
+import { StorageService } from '../../../core/services/storage/storage.service';
 
 @Component({
   selector: 'app-admin',
@@ -15,7 +16,7 @@ import { MenuItem } from '../../../core/models/menu-item.model';
 export class AdminComponent {
   public isSidebarRetracted = false;
   showUsername = true;
-  user: User | null = JSON.parse(localStorage.getItem('user') || 'null');
+  user: User | null = JSON.parse(this.storageService.getItem('user') || 'null');
 
   // Combina nombre y apellido
   name: string = this.user ? `${this.user.nombre} ${this.user.apellido}` : 'Invitado';
@@ -26,7 +27,7 @@ export class AdminComponent {
     { label: 'Control de Contenido', link: '/admin/content', icon: 'settings' }
   ];
 
-  constructor(private route: Router, private authService:AuthService) {}
+  constructor(private route: Router, private authService:AuthService, private storageService:StorageService) {}
 
   ngOnInit(): void {}
 

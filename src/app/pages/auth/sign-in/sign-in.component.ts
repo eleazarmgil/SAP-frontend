@@ -7,6 +7,7 @@ import { AuthService } from '../../../../core/services/auth/auth.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { StorageService } from '../../../../core/services/storage/storage.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -18,7 +19,7 @@ import { Router } from '@angular/router';
 export class SignInComponent {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router:Router) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router:Router, private storageService: StorageService) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
@@ -27,9 +28,9 @@ export class SignInComponent {
 
   ngOnInit(): void {
     // Verifica si el usuario ya está autenticado
-    const token = localStorage.getItem('token');
+    const token = this.storageService.getItem('token');
     if (token) {
-      switch(localStorage.getItem('role')){
+      switch(this.storageService.getItem('role')){
         case 'admin':{
           this.router.navigate(['/admin/profile']);
           break;
