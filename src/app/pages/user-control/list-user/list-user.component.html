@@ -22,7 +22,7 @@
         <td>{{ user.nombre }} {{user.apellido}}</td>
         <td>{{ user.role }}</td>
         <td>
-          <button class="button-read" >Ver</button>
+          <button class="button-read" (click)="viewUser(user.id)">Ver</button>
           <button class="button-delete" (click)="deleteUser(user.id)">Eliminar</button>
         </td>
       </tr>

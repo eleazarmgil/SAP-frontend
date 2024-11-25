@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { UserControlService } from '../../../../core/services/user-control/user-control.service';
 import { User } from '../../../../core/models/user.model';
+import { NavigationService } from '../../../../core/services/navigation/navigation.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +16,7 @@ import { User } from '../../../../core/models/user.model';
 export class ListUserComponent {
   users: User[] = [];
 
-  constructor(private userService:UserControlService){}
+  constructor(private router: Router, private userService:UserControlService){}
 
   ngOnInit(): void {
     this.getAllUsers();
@@ -27,9 +29,12 @@ export class ListUserComponent {
         console.log('Usuarios obtenidos:', this.users);
       },
       error: (error: any) => { // Especifica el tipo como 'any'
-        console.error('Error al obtener usuarios:', error);
       }
     });
+  }
+
+  viewUser(id:string){
+    this.router.navigate(['/app/users/'+id])
   }
 
   deleteUser(userId: String): void {
