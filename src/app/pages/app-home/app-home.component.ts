@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../../../core/models/login-response.model';
+import { BasicUser } from '../../../core/models/login-response.model';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../core/services/auth/auth.service';
 import { StorageService } from '../../../core/services/storage/storage.service';
@@ -21,7 +21,7 @@ export class AppHomeComponent {
   ];
   public isSidebarRetracted = false;
   showUsername = true;
-  user: User| null = JSON.parse(this.storageService.getItem('user') || 'null');
+  user: BasicUser| null = JSON.parse(this.storageService.getItem('user') || 'null');
 
   // Combina nombre y apellido
   name: string = this.user ? `${this.user.nombre} ${this.user.apellido}` : 'Invitado';

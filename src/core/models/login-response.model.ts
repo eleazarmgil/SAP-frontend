@@ -3,13 +3,13 @@ export interface LoginResponse {
   isSuccess: boolean;
   errorMessages: string[];
   result: {
-    usuario: User;
+    usuario: BasicUser;
     token: string;
     role: string;
   };
 }
 
-export interface User {
+export interface BasicUser {
   id: string;        // UUID del usuario
   email: string;     // Correo electrónico del usuario
   nombre: string;    // Nombre del usuario

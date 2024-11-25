@@ -15,6 +15,9 @@ import { ErrorComponent } from './pages/error/error.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { UserControlComponent } from './pages/user-control/user-control.component';
 import { AppHomeComponent } from './pages/app-home/app-home.component';
+import { ListUserComponent } from './pages/user-control/list-user/list-user.component';
+import { ReadUserComponent } from './pages/user-control/read-user/read-user.component';
+import { CreateUserComponent } from './pages/user-control/create-user/create-user.component';
 
 export const routes: Routes = [
   {
@@ -22,62 +25,44 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path:'auth',
-    component:  AuthComponent,
-    children:[
-      {
-        path:'',
-        component: SignInComponent
-      },
-      {
-        path:'signup',
-        component: SignUpComponent
-      }
+    path: 'auth',
+    component: AuthComponent,
+    children: [
+      { path: '', component: SignInComponent },
+      { path: 'signup', component: SignUpComponent }
     ]
   },
   {
-    path:'app',
-    component:AppHomeComponent,
-    children:[
+    path: 'app',
+    component: AppHomeComponent,
+    children: [
       {
-        path:'profile',
-        component:ProfileComponent,
-        children:[
-          {
-            path:'update-password',
-            component: ResetPasswordComponent
-          },
-          {
-            path:'update-email',
-            component: UpdateEmailComponent
-          },
-          {
-            path:'update-credentials',
-            component: UpdateCredentialsComponent
-          },
-          {
-            path:'update-username',
-            component: UpdateUsernameComponent
-          }
+        path: 'profile',
+        component: ProfileComponent,
+        children: [
+          { path: 'update-password', component: ResetPasswordComponent },
+          { path: 'update-email', component: UpdateEmailComponent },
+          { path: 'update-credentials', component: UpdateCredentialsComponent },
+          { path: 'update-username', component: UpdateUsernameComponent }
         ]
       },
       {
-        path:'content',
+        path: 'content',
         component: ContentComponent,
-        children:[
-          {
-            path:'read',
-            component: ReadContentComponent
-          },
-          {
-            path:'update',
-            component: UpdateContentComponent
-          }
+        children: [
+          { path: 'read', component: ReadContentComponent },
+          { path: 'update', component: UpdateContentComponent }
         ]
       },
       {
-        path:'users',
-        component: UserControlComponent
+        path: 'users',
+        component: UserControlComponent,
+        children: [
+          { path: '', component: ListUserComponent },
+          { path: 'new', component: CreateUserComponent },
+          { path: ':id', component: ReadUserComponent }
+
+        ]
       }
     ]
   },
