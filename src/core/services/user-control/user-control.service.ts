@@ -25,4 +25,17 @@ export class UserControlService {
     // Realizar la solicitud GET
     return this.http.get<any>(`${this.apiUrl}/usuarios`, { headers });
   }
+
+  getUserByID(id:string): Observable<any>{
+    // Extraer datos de localStorage
+    const token = this.storageService.getItem('token');
+
+    // Configurar encabezados
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Agregar el token Bearer
+    });
+
+    // Realizar la solicitud GET
+    return this.http.get<any>(`${this.apiUrl}/usuarios/`+id, { headers });
+  }
 }

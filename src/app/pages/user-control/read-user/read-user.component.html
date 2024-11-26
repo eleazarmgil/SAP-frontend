@@ -1,1 +1,50 @@
-<p>read-user works!</p>
+<div class="content">
+  <div class="info-section" id="main-info">
+    <p class="text-user">{{user?.nombre}} {{user?.apellido}}</p>
+    <p class="role-user">{{role}}</p>
+
+    <!-- Indicador de verificación -->
+    <div class="verification-status" *ngIf="isPsychologist && user?.verificado === 'si'">
+      <span class="verified-icon">✔️</span> <!-- Puedes usar un ícono de verificación -->
+      <p class="verification-text">Psicólogo verificado</p>
+    </div>
+
+    <p class="info-section-text" *ngIf="isPsychologist && user?.numeroColegiatura != null">
+      Número de colegiatura: {{user?.numeroColegiatura}}
+    </p>
+    <p class="info-section-text">Correo electrónico: {{user?.email}}</p>
+  </div>
+
+  <div class="buttons-section">
+    <button class="verified-button">Aplicar verificación</button>
+    <button class="unverified-button">Quitar verificación</button>
+  </div>
+
+  <div class="info-section" *ngIf="user?.descripcionPsicologo != null && isPsychologist">
+    <p class="info-section-title">Sobre mí</p>
+    <p class="info-section-text">{{user?.descripcionPsicologo}}</p>
+  </div>
+
+  <div class="info-section" *ngIf="(user?.telefonOficina != null || user?.calle_Av != null) && isPsychologist">
+    <p class="info-section-title">Contacto</p>
+    <p class="info-section-text">Teléfono: {{user?.telefonOficina}}</p>
+    <p class="info-section-text">Dirección: {{user?.calle_Av}}</p>
+  </div>
+
+  <div class="info-section" *ngIf="user?.formacion != null && isPsychologist">
+    <p class="info-section-title">Formación</p>
+    <p class="info-section-text">{{user?.formacion}}</p>
+  </div>
+
+  <div class="info-section" *ngIf="user?.experiencia != null && isPsychologist">
+    <p class="info-section-title">Experiencia</p>
+    <p class="info-section-text">{{user?.experiencia}}</p>
+  </div>
+
+  <div class="info-section" *ngIf="user?.tipoTerapia != null && isPsychologist">
+    <p class="info-section-title">Tipo de Terapia</p>
+    <p class="info-section-text">{{user?.tipoTerapia}}</p>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
