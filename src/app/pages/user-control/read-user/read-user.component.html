@@ -16,8 +16,8 @@
   </div>
 
   <div class="buttons-section">
-    <button class="verified-button">Aplicar verificación</button>
-    <button class="unverified-button">Quitar verificación</button>
+    <button class="verified-button" (click)="verify()">Aplicar verificación</button>
+    <button class="unverified-button" (click)="unverify()">Quitar verificación</button>
   </div>
 
   <div class="info-section" *ngIf="user?.descripcionPsicologo != null && isPsychologist">

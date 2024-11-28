@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { UserControlService } from '../../../../core/services/user-control/user-control.service'; // Ajusta la ruta según tu estructura
+import { UserControlService } from '../../../../core/services/user-control/user-control.service';
 import { User } from '../../../../core/models/user.model';
 import { CommonModule } from '@angular/common';
 
@@ -9,12 +9,13 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [RouterModule, CommonModule],
   templateUrl: './read-user.component.html',
-  styleUrl: './read-user.component.scss'
+  styleUrls: ['./read-user.component.scss'] // Corrige 'styleUrl' a 'styleUrls'
 })
 export class ReadUserComponent implements OnInit {
   user: User | null = null; // Almacena la información del usuario
   role: string | null = null;
   isPsychologist: boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     private userService: UserControlService
@@ -30,15 +31,16 @@ export class ReadUserComponent implements OnInit {
       this.userService.getUserByID(userId).subscribe({
         next: (data: User) => {
           this.user = data; // Asigna la respuesta a la propiedad user
-          switch(this.user.role){
+          this.isPsychologist = this.user.role === 'psicologo'; // Verificamos si es psicólogo
+          switch (this.user.role) {
             case 'psicologo':
-              this.role='Psicólogo';
+              this.role = 'Psicólogo';
               break;
             case 'usuario':
-              this.role='Usuario';
+              this.role = 'Usuario';
               break;
             case 'admin':
-              this.role='Administrador';
+              this.role = 'Administrador';
               break;
           }
           console.log('Detalles del usuario:', this.user);
@@ -49,6 +51,53 @@ export class ReadUserComponent implements OnInit {
       });
     } else {
       console.error('No se encontró el ID del usuario en la ruta.');
+    }
+  }
+
+  verify(): void {
+    const id = this.user?.id || null;
+    if(this.user?.verificado=="F"){
+      if (id) {
+        this.userService.verifyPsychologist(id).subscribe({
+          next: () => {
+            if(this.user!=null && this.user.verificado!=null){
+              this.user.verificado='V';
+            }
+            alert('Psicólogo verificado exitosamente.');
+          },
+          error: (error: any) => {
+            console.error('Error al verificar al psicólogo:', error);
+          }
+        });
+      } else {
+        console.error('ID de usuario no disponible para verificar.');
+      }
+    }else{
+      alert("El psicólogo ya está verificado.")
+    }
+
+  }
+
+  unverify(): void {
+    const id = this.user?.id || null;
+    if(this.user?.verificado=="V"){
+      if (id) {
+        this.userService.verifyPsychologist(id).subscribe({
+          next: () => {
+            if(this.user!=null && this.user.verificado!=null){
+              this.user.verificado='F';
+            }
+            alert('Se ha eliminado la verificación exitosamente.');
+          },
+          error: (error: any) => {
+            console.error('Error al verificar al psicólogo:', error);
+          }
+        });
+      } else {
+        console.error('ID de usuario no disponible para verificar.');
+      }
+    }else{
+      alert("El psicólogo no está verificado.")
     }
   }
 }
