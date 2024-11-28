@@ -17,6 +17,7 @@ import { AppHomeComponent } from './pages/app-home/app-home.component';
 import { ListUserComponent } from './pages/user-control/list-user/list-user.component';
 import { ReadUserComponent } from './pages/user-control/read-user/read-user.component';
 import { CreateUserComponent } from './pages/user-control/create-user/create-user.component';
+import { UpdatePsychologistComponent } from './pages/user-control/update-psychologist/update-psychologist.component';
 import { UpdateUserComponent } from './pages/user-control/update-user/update-user.component';
 
 export const routes: Routes = [
@@ -61,8 +62,8 @@ export const routes: Routes = [
           { path: '', component: ListUserComponent },
           { path: 'new', component: CreateUserComponent },
           { path: ':id', component: ReadUserComponent },
-          { path: ':id/up-us', component: UpdateUserComponent }, // Ruta para editar usuario
-          { path: ':id/up-ps', component: UpdateUserComponent } // Ruta para editar psicólogo
+          { path: ':id/up-us', component: UpdateUserComponent },
+          { path: ':id/up-ps', component: UpdatePsychologistComponent}
         ]
       }
     ]
