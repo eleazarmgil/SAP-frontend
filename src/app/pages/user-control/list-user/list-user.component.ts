@@ -22,6 +22,10 @@ export class ListUserComponent {
     this.getAllUsers();
   }
 
+  createUser(){
+    this.router.navigate(['/app/users/new'])
+  }
+
   getAllUsers(): void {
     this.userService.getAllUsers().subscribe({
       next: (data: User[]) => {

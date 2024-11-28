@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../app/environments/environment';
 import { StorageService } from '../storage/storage.service';
 import { UpdatePsychologistRequest } from '../../models/update-psychologist-request.model';
+import { User } from '../../models/user.model';
+import { UpdateUserRequest } from '../../models/update-user-request.model';
 
 @Injectable({
   providedIn: 'root'
@@ -66,5 +68,11 @@ export class UserControlService {
       ciudadId: null,
     };
     return this.http.patch<any>(`${this.apiUrl}/usuarios/ActualizarPsicologo/${id}`, data, { headers });
+  }
+
+  updateUser(data:UpdateUserRequest){
+    const token = this.storageService.getItem('token');
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    return this.http.patch<any>(`${this.apiUrl}/usuarios/ActualizarUsuario/${data.id}`, data, { headers });
   }
 }

@@ -3,6 +3,7 @@
     <div class="main-title">
       <h1>Control de Usuarios</h1>
     </div>
+    <button class="button-new" (click)="createUser()">Nuevo Usuario</button>
   </div>
   <div class="search-block">
     <div class="search-bar">
@@ -19,7 +20,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
-        <td>{{ user.nombre }} {{user.apellido}}</td>
+        <td>{{ user.nombre }} {{ user.apellido }}</td>
         <td>{{ user.role }}</td>
         <td>
           <button class="button-read" (click)="viewUser(user.id)">Ver</button>
