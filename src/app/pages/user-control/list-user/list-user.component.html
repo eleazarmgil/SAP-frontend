@@ -7,7 +7,7 @@
   </div>
   <div class="search-block">
     <div class="search-bar">
-      <input type="text" placeholder="Buscar">
+      <input type="text" placeholder="Buscar" [(ngModel)]="searchTerm" (input)="filterUsers()">
     </div>
   </div>
   <table>
@@ -19,12 +19,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users">
+      <tr *ngFor="let user of filteredUsers">
         <td>{{ user.nombre }} {{ user.apellido }}</td>
-        <td>{{ user.role }}</td>
+        <td *ngIf="user.role=='admin'">Administrador</td>
+        <td *ngIf="user.role=='psicologo'">Psicólogo</td>
+        <td *ngIf="user.role=='usuario'">Usuario</td>
+        <td *ngIf="user.role!='admin' && user.role!='psicologo' && user.role!='usuario'"></td>
         <td>
           <button class="button-read" (click)="viewUser(user.id)">Ver</button>
-          <button class="button-delete" (click)="deleteUser(user.id)">Eliminar</button>
         </td>
       </tr>
     </tbody>
