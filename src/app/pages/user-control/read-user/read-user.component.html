@@ -1,13 +1,11 @@
 <div class="content">
   <div class="info-section" id="main-info">
+    <div class="verification-status" *ngIf="isPsychologist && user?.verificado === 'V'">
+      <span class="verified-icon">✅</span>
+      <p class="verification-text">VERIFICADO</p>
+    </div>
     <p class="text-user">{{user?.nombre}} {{user?.apellido}}</p>
     <p class="role-user">{{role}}</p>
-
-    <!-- Indicador de verificación -->
-    <div class="verification-status" *ngIf="isPsychologist && user?.verificado === 'si'">
-      <span class="verified-icon">✔️</span> <!-- Puedes usar un ícono de verificación -->
-      <p class="verification-text">Psicólogo verificado</p>
-    </div>
 
     <p class="info-section-text" *ngIf="isPsychologist && user?.numeroColegiatura != null">
       Número de colegiatura: {{user?.numeroColegiatura}}
@@ -16,8 +14,14 @@
   </div>
 
   <div class="buttons-section">
+    <button class="edit-button" *ngIf="user?.role=='usuario'" (click)="updateUser()">Editar</button>
+    <button class="edit-button" *ngIf="user?.role=='admin'||user?.role=='psicologo'" (click)="updatePsychologist()">Editar</button>
+  </div>
+
+  <div class="buttons-section">
     <button class="verified-button" (click)="verify()">Aplicar verificación</button>
     <button class="unverified-button" (click)="unverify()">Quitar verificación</button>
+
   </div>
 
   <div class="info-section" *ngIf="user?.descripcionPsicologo != null && isPsychologist">

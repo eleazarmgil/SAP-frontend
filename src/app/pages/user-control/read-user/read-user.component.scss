@@ -6,6 +6,7 @@ $color-secondary: #666;
 $color-background: #f9f9f9;
 $color-card: #ffffff;
 $color-verified: #4caf50; // Color verde para verificación
+$color-edit: #ffc107; // Color amarillo para el botón de editar
 
 .content {
   display: flex;
@@ -102,6 +103,15 @@ $color-verified: #4caf50; // Color verde para verificación
 
         &:hover {
           background-color: darken(#f44336, 10%);
+        }
+      }
+
+      &.edit-button { // Nueva clase para el botón de editar
+        background-color: $color-edit; // Color amarillo
+        color: white;
+
+        &:hover {
+          background-color: darken($color-edit, 10%);
         }
       }
     }

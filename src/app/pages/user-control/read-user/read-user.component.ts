@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { UserControlService } from '../../../../core/services/user-control/user-control.service';
 import { User } from '../../../../core/models/user.model';
 import { CommonModule } from '@angular/common';
@@ -18,6 +18,7 @@ export class ReadUserComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private userService: UserControlService
   ) {}
 
@@ -98,6 +99,18 @@ export class ReadUserComponent implements OnInit {
       }
     }else{
       alert("El psicólogo no está verificado.")
+    }
+  }
+
+  updateUser(): void {
+    if (this.user?.id) {
+      this.router.navigate(['/app/users', this.user.id, 'up-us']);
+    }
+  }
+
+  updatePsychologist(): void {
+    if (this.user?.id) {
+      this.router.navigate(['/app/users', this.user.id, 'up-ps']);
     }
   }
 }

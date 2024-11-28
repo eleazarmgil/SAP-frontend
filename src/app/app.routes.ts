@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
 import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
-import { NewPsychologistComponent } from './pages/auth/new-psychologist/new-psychologist.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ResetPasswordComponent } from './pages/profile/reset-password/reset-password.component';
 import { UpdateEmailComponent } from './pages/profile/update-email/update-email.component';
@@ -18,6 +17,7 @@ import { AppHomeComponent } from './pages/app-home/app-home.component';
 import { ListUserComponent } from './pages/user-control/list-user/list-user.component';
 import { ReadUserComponent } from './pages/user-control/read-user/read-user.component';
 import { CreateUserComponent } from './pages/user-control/create-user/create-user.component';
+import { UpdateUserComponent } from './pages/user-control/update-user/update-user.component';
 
 export const routes: Routes = [
   {
@@ -60,8 +60,9 @@ export const routes: Routes = [
         children: [
           { path: '', component: ListUserComponent },
           { path: 'new', component: CreateUserComponent },
-          { path: ':id', component: ReadUserComponent }
-
+          { path: ':id', component: ReadUserComponent },
+          { path: ':id/up-us', component: UpdateUserComponent }, // Ruta para editar usuario
+          { path: ':id/up-ps', component: UpdateUserComponent } // Ruta para editar psicólogo
         ]
       }
     ]

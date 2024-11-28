@@ -1,0 +1,51 @@
+$error-background: #f0f8ff; // Color de fondo suave
+$error-title-color: #3b5998; // Color azul para el título
+$error-message-color: #ff4d4d; // Color rojo para el mensaje de error
+$error-button-color: #007bff; // Color del botón
+$error-button-hover: darken($error-button-color, 10%); // Color del botón al pasar el ratón
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: $error-background;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+  .error-title {
+    font-size: 3em;
+    color: $error-title-color;
+    margin-bottom: 10px;
+  }
+
+  .error-message {
+    font-size: 1.5em;
+    color: $error-message-color;
+    margin-bottom: 15px;
+  }
+
+  .error-description {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  .button-container {
+    a.home-button {
+      background-color: $error-button-color;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $error-button-hover;
+      }
+    }
+  }
+}
