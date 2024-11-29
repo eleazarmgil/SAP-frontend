@@ -54,7 +54,6 @@ export const routes: Routes = [
           { path: '', component: UpdateEmailComponent },
           { path: 'update-password', component: ResetPasswordComponent },
           { path: 'update-email', component: UpdateEmailComponent },
-          { path: 'update-credentials', component: UpdateCredentialsComponent },
           { path: 'update-username', component: UpdateUsernameComponent }
         ]
       },

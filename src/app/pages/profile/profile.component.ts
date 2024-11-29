@@ -16,7 +16,7 @@ export class ProfileComponent {
 
   isPsychologist:boolean=false;
 
-  OnInit(){
+  ngOnInit(){
     if(this.storageService.getItem('role')=='psicologo'){
       this.isPsychologist=true;
     }

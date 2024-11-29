@@ -33,7 +33,7 @@ export class AppHomeComponent {
       this.menuItems= [
         { label: 'Mi Perfil', link: '/app/profile', icon: 'settings' },
         { label: 'Control de Usuarios', link: '/app/users', icon: 'user' },
-        { label: 'Trastornos', link: '/app/content', icon: 'settings' }
+        { label: 'Control de Trastornos', link: '/app/content', icon: 'settings' }
       ];
     }else{
       this.menuItems= [
