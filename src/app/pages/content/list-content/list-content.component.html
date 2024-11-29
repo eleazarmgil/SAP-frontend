@@ -14,14 +14,12 @@
     <thead>
       <tr>
         <th>Nombre</th>
-        <th>Descripción</th>
         <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let disorder of filteredDisorders">
         <td>{{ disorder.nombre }}</td>
-        <td>{{ disorder.descripcion }}</td>
         <td>
           <button class="button-read" (click)="viewDisorder(disorder.id)">Ver</button>
         </td>

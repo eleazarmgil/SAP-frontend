@@ -20,6 +20,7 @@ import { CreateUserComponent } from './pages/user-control/create-user/create-use
 import { UpdatePsychologistComponent } from './pages/user-control/update-psychologist/update-psychologist.component';
 import { UpdateUserComponent } from './pages/user-control/update-user/update-user.component';
 import { ListContentComponent } from './pages/content/list-content/list-content.component';
+import { CreateContentComponent } from './pages/content/create-content/create-content.component';
 
 export const routes: Routes = [
   {
@@ -42,6 +43,7 @@ export const routes: Routes = [
         path: 'profile',
         component: ProfileComponent,
         children: [
+          { path: '', component: UpdateEmailComponent},
           { path: 'update-password', component: ResetPasswordComponent },
           { path: 'update-email', component: UpdateEmailComponent },
           { path: 'update-credentials', component: UpdateCredentialsComponent },
@@ -53,8 +55,8 @@ export const routes: Routes = [
         component: ContentComponent,
         children: [
           { path: '', component: ListContentComponent },
-          { path: 'read', component: ReadContentComponent },
-          { path: 'update', component: UpdateContentComponent }
+          { path: 'new', component: CreateContentComponent },
+          { path: ':id', component: ReadContentComponent },
         ]
       },
       {
