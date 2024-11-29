@@ -22,6 +22,7 @@ import { UpdateUserComponent } from './pages/user-control/update-user/update-use
 import { ListContentComponent } from './pages/content/list-content/list-content.component';
 import { CreateContentComponent } from './pages/content/create-content/create-content.component';
 import { ReviewComponent } from './pages/review/review.component';
+import { CreateReviewComponent } from './pages/review/create-review/create-review.component';
 
 export const routes: Routes = [
   {
@@ -69,7 +70,13 @@ export const routes: Routes = [
           { path: 'new', component: CreateUserComponent },
           {
             path: ':id', component: ReadUserComponent,
-            children: [{ path: '', component: ReviewComponent }]
+            children: [
+              { path: '', component: CreateReviewComponent,
+                children:[
+                  { path:'', component:ReviewComponent}
+                ]
+               }
+            ]
           },
           { path: ':id/up-us', component: UpdateUserComponent },
           { path: ':id/up-ps', component: UpdatePsychologistComponent },

@@ -4,7 +4,7 @@ import { StorageService } from '../storage/storage.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../app/environments/environment';
 import { CreateReviewComponent } from '../../../app/pages/review/create-review/create-review.component';
-import { CreateReviewRequest } from '../../models/create-review-request.model';
+import { Review } from '../../models/review.model';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +30,7 @@ export class ReviewService {
     return this.http.get<any>(`${this.apiUrl}/usuarios/${id}`, { headers });
   }
 
-  createReview(data: CreateReviewRequest): Observable<any> {
+  createReview(data: Review): Observable<any> {
     const token = this.storageService.getItem('token');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`});
