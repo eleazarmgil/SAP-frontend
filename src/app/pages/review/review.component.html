@@ -1,0 +1,31 @@
+<div class="feedback-container" *ngIf="!isLoading">
+  <h1>Reseñas recibidas</h1>
+
+  <div *ngIf="feedbacks.length === 0" class="no-feedback">
+    <p>No hay comentarios disponibles.</p>
+  </div>
+
+  <div *ngFor="let feedback of feedbacks" class="feedback-item">
+    <div class="feedback-user-info" *ngIf="users[feedback.usuarioId]">
+      <p>{{ users[feedback.usuarioId].nombre }} {{ users[feedback.usuarioId].apellido }}</p>
+      <p> {{ users[feedback.usuarioId].email }}</p>
+    </div>
+    <div class="feedback-header">
+      <span class="feedback-score">
+        <ng-container *ngFor="let star of [].constructor(feedback.puntaje); let i = index">
+          <i class="star" aria-hidden="true">★</i>
+        </ng-container>
+        <ng-container *ngFor="let star of [].constructor(5 - feedback.puntaje); let i = index">
+          <i class="star empty" aria-hidden="true">☆</i>
+        </ng-container>
+      </span>
+      <span class="feedback-date">{{ feedback.fecha | date:'short' }}</span>
+    </div>
+    <p class="feedback-observacion">{{ feedback.observacion }}</p>
+
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="loading">
+  <p>Cargando comentarios...</p>
+</div>
