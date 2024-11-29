@@ -21,6 +21,7 @@ import { UpdatePsychologistComponent } from './pages/user-control/update-psychol
 import { UpdateUserComponent } from './pages/user-control/update-user/update-user.component';
 import { ListContentComponent } from './pages/content/list-content/list-content.component';
 import { CreateContentComponent } from './pages/content/create-content/create-content.component';
+import { ReviewComponent } from './pages/review/review.component';
 
 export const routes: Routes = [
   {
@@ -43,7 +44,7 @@ export const routes: Routes = [
         path: 'profile',
         component: ProfileComponent,
         children: [
-          { path: '', component: UpdateEmailComponent},
+          { path: '', component: UpdateEmailComponent },
           { path: 'update-password', component: ResetPasswordComponent },
           { path: 'update-email', component: UpdateEmailComponent },
           { path: 'update-credentials', component: UpdateCredentialsComponent },
@@ -66,9 +67,13 @@ export const routes: Routes = [
         children: [
           { path: '', component: ListUserComponent },
           { path: 'new', component: CreateUserComponent },
-          { path: ':id', component: ReadUserComponent },
+          {
+            path: ':id', component: ReadUserComponent,
+            children: [{ path: '', component: ReviewComponent }]
+          },
           { path: ':id/up-us', component: UpdateUserComponent },
-          { path: ':id/up-ps', component: UpdatePsychologistComponent}
+          { path: ':id/up-ps', component: UpdatePsychologistComponent },
+          { path: ':id/reviews', component: ReviewComponent }
         ]
       }
     ]

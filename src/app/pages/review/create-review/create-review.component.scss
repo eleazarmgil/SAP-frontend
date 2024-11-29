@@ -1,0 +1,71 @@
+.feedback-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    textarea, input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+
+      &:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+    }
+
+    textarea {
+      resize: vertical; // Allow vertical resizing only
+      height: 100px;
+    }
+  }
+
+  .button-submit {
+    background-color: #28a745; // Green color for submit button
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #218838; // Darker green on hover
+    }
+  }
+
+  .button-cancel {
+    margin-left: 10px;
+    background-color: #dc3545; // Red color for cancel button
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #c82333; // Darker red on hover
+    }
+  }
+}
