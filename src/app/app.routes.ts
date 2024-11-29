@@ -24,6 +24,7 @@ import { CreateContentComponent } from './pages/content/create-content/create-co
 import { ReviewComponent } from './pages/review/review.component';
 import { CreateReviewComponent } from './pages/review/create-review/create-review.component';
 import { AuthGuard } from '../core/guard/auth.guard';
+import { AdminGuard } from '../core/guard/admin.guard';
 
 export const routes: Routes = [
   {
@@ -59,9 +60,9 @@ export const routes: Routes = [
         component: ContentComponent,
         children: [
           { path: '', component: ListContentComponent },
-          { path: 'new', component: CreateContentComponent },
+          { path: 'new', component: CreateContentComponent, canActivate:[AdminGuard] },
           { path: ':id', component: ReadContentComponent },
-          { path: ':id/up', component: UpdateContentComponent }
+          { path: ':id/up', component: UpdateContentComponent, canActivate:[AdminGuard] }
         ]
       },
       {
@@ -69,7 +70,7 @@ export const routes: Routes = [
         component: UserControlComponent,
         children: [
           { path: '', component: ListUserComponent },
-          { path: 'new', component: CreateUserComponent },
+          { path: 'new', component: CreateUserComponent, canActivate:[AdminGuard]},
           {
             path: ':id', component: ReadUserComponent,
             children: [
@@ -80,9 +81,8 @@ export const routes: Routes = [
                }
             ]
           },
-          { path: ':id/up-us', component: UpdateUserComponent },
-          { path: ':id/up-ps', component: UpdatePsychologistComponent },
-          { path: ':id/reviews', component: ReviewComponent }
+          { path: ':id/up-us', component: UpdateUserComponent, canActivate:[AdminGuard] },
+          { path: ':id/up-ps', component: UpdatePsychologistComponent, canActivate:[AdminGuard]},
         ]
       }
     ]

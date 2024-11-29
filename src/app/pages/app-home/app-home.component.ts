@@ -28,7 +28,13 @@ export class AppHomeComponent {
 
   constructor(private route: Router, private authService:AuthService, private storageService:StorageService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.menuItems= [
+      { label: 'Perfil', link: '/app/profile', icon: 'settings' },
+      { label: 'Control de Usuarios', link: '/app/users', icon: 'user' },
+      { label: 'Control de Contenido', link: '/app/content', icon: 'settings' }
+    ];
+  }
 
   toggleSidebar(): void {
     this.isSidebarRetracted = !this.isSidebarRetracted;
