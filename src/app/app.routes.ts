@@ -19,6 +19,7 @@ import { ReadUserComponent } from './pages/user-control/read-user/read-user.comp
 import { CreateUserComponent } from './pages/user-control/create-user/create-user.component';
 import { UpdatePsychologistComponent } from './pages/user-control/update-psychologist/update-psychologist.component';
 import { UpdateUserComponent } from './pages/user-control/update-user/update-user.component';
+import { ListContentComponent } from './pages/content/list-content/list-content.component';
 
 export const routes: Routes = [
   {
@@ -51,6 +52,7 @@ export const routes: Routes = [
         path: 'content',
         component: ContentComponent,
         children: [
+          { path: '', component: ListContentComponent },
           { path: 'read', component: ReadContentComponent },
           { path: 'update', component: UpdateContentComponent }
         ]

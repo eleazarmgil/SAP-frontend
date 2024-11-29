@@ -1,0 +1,31 @@
+<div class="disorder-table">
+  <div class="main-block">
+    <div class="main-title">
+      <h1>Control de Trastornos</h1>
+    </div>
+    <button class="button-new" (click)="createDisorder()">Nuevo Trastorno</button>
+  </div>
+  <div class="search-block">
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar" [(ngModel)]="searchTerm" (input)="filterDisorders()">
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let disorder of filteredDisorders">
+        <td>{{ disorder.nombre }}</td>
+        <td>{{ disorder.descripcion }}</td>
+        <td>
+          <button class="button-read" (click)="viewDisorder(disorder.id)">Ver</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
