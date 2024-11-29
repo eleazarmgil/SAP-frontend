@@ -14,17 +14,17 @@
     <thead>
       <tr>
         <th>Nombre</th>
-        <th>Rol</th>
-        <th>Acciones</th>
+        <th *ngIf="actualUser?.role==='admin'">Rol</th>
+        <th >Acciones</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of filteredUsers">
         <td>{{ user.nombre }} {{ user.apellido }}</td>
-        <td *ngIf="user.role=='admin'">Administrador</td>
-        <td *ngIf="user.role=='psicologo'">Psicólogo</td>
-        <td *ngIf="user.role=='usuario'">Usuario</td>
-        <td *ngIf="user.role!='admin' && user.role!='psicologo' && user.role!='usuario'"></td>
+        <td *ngIf="user.role=='admin' && actualUser?.role==='admin'">Administrador</td>
+        <td *ngIf="user.role=='psicologo'&&actualUser?.role==='admin'">Psicólogo</td>
+        <td *ngIf="user.role=='usuario'&&actualUser?.role==='admin'">Usuario</td>
+        <td *ngIf="actualUser?.role==='admin'&&user.role!='admin' && user.role!='psicologo' && user.role!='usuario'"></td>
         <td>
           <button class="button-read" (click)="viewUser(user.id)">Ver</button>
         </td>
