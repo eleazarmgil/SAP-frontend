@@ -4,6 +4,7 @@ import { StorageService } from '../storage/storage.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../app/environments/environment';
 import { CreateDisorderRequest } from '../../models/create-disorder.model';
+import { UpdateDisorderRequest } from '../../models/update-disorder-request.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,17 @@ export class ContentService {
     const token = this.storageService.getItem('token');
     const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
     return this.http.post<any>(`${this.apiUrl}/trastornos`, data, { headers });
+  }
+
+  updateContent(data: UpdateDisorderRequest): Observable<any> {
+    const token = this.storageService.getItem('token');
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    return this.http.patch<any>(`${this.apiUrl}/trastornos/${data.id}`, data, { headers });
+  }
+
+  deleteContent(id:string){
+    const token = this.storageService.getItem('token');
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    return this.http.delete<any>(`${this.apiUrl}/trastornos/${id}`, { headers });
   }
 }

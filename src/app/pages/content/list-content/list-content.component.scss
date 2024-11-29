@@ -6,6 +6,10 @@ $error-message-color: #ff4d4d; // Color rojo para el mensaje de error
 $button-hover-bg: #0056b3;
 $button-new-bg: #28a745; // Color for the new button
 $button-new-hover-bg: #218838; // Hover for the new button
+$edit-button-bg: #ffc107; // Color for the edit button
+$edit-button-hover-bg: #e0a800; // Hover color for the edit button
+
+
 
 .disorder-table {
   background-color: $disorder-table-bg;
@@ -119,5 +123,20 @@ $button-new-hover-bg: #218838; // Hover for the new button
 
   &:hover {
     background-color: darken($error-message-color, 10%);
+  }
+}
+
+.button-edit {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: $edit-button-bg;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $edit-button-hover-bg;
   }
 }

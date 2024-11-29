@@ -22,7 +22,8 @@
         <td>{{ disorder.nombre }}</td>
         <td>
           <button class="button-read" (click)="viewDisorder(disorder.id)">Ver</button>
-          <button class="cancel-button">Eliminar</button>
+          <button class="button-edit" (click)="editDisorder(disorder.id)">Editar</button>
+          <button class="cancel-button" (click)="deleteDisorder(disorder.id)">Eliminar</button>
         </td>
       </tr>
     </tbody>

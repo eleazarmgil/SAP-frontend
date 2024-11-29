@@ -57,6 +57,7 @@ export const routes: Routes = [
           { path: '', component: ListContentComponent },
           { path: 'new', component: CreateContentComponent },
           { path: ':id', component: ReadContentComponent },
+          { path: ':id/up', component: UpdateContentComponent }
         ]
       },
       {

@@ -56,4 +56,25 @@ export class ListContentComponent {
       );
     }
   }
+
+  deleteDisorder(id: string): void {
+    if (confirm('¿Estás seguro de que deseas eliminar este trastorno?')) {
+      this.contentService.deleteContent(id).subscribe({
+        next: () => {
+          // Remove the deleted disorder from the local array
+          this.disorders = this.disorders.filter(disorder => disorder.id !== id);
+          this.filteredDisorders = this.filteredDisorders.filter(disorder => disorder.id !== id);
+          alert('Trastorno eliminado exitosamente.');
+        },
+        error: (error: any) => {
+          console.error('Error al eliminar el trastorno:', error);
+          alert('Ocurrió un error al intentar eliminar el trastorno.');
+        }
+      });
+    }
+  }
+
+  editDisorder(id: string): void {
+    this.router.navigate(['/app/content/'+id+'/up']);
+  }
 }
