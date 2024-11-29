@@ -2,6 +2,7 @@ $disorder-table-bg: #f9f9f9;
 $main-title-color: #333;
 $search-bg: #fff;
 $button-bg: #007bff;
+$error-message-color: #ff4d4d; // Color rojo para el mensaje de error
 $button-hover-bg: #0056b3;
 $button-new-bg: #28a745; // Color for the new button
 $button-new-hover-bg: #218838; // Hover for the new button
@@ -103,5 +104,20 @@ $button-new-hover-bg: #218838; // Hover for the new button
         }
       }
     }
+  }
+}
+
+.cancel-button {
+  margin-left: 10px;
+  background-color: $error-message-color;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: darken($error-message-color, 10%);
   }
 }

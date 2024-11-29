@@ -26,7 +26,7 @@ export class ListContentComponent {
   }
 
   createDisorder() {
-    this.router.navigate(['/app/disorders/new']);
+    this.router.navigate(['/app/content/new']);
   }
 
   getAllDisorders(): void {
@@ -42,7 +42,7 @@ export class ListContentComponent {
   }
 
   viewDisorder(id: string) {
-    this.router.navigate(['/app/disorders/' + id]);
+    this.router.navigate(['/app/content/' + id]);
   }
 
   filterDisorders(): void {
