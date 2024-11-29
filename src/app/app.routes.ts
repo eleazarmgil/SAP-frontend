@@ -23,6 +23,7 @@ import { ListContentComponent } from './pages/content/list-content/list-content.
 import { CreateContentComponent } from './pages/content/create-content/create-content.component';
 import { ReviewComponent } from './pages/review/review.component';
 import { CreateReviewComponent } from './pages/review/create-review/create-review.component';
+import { AuthGuard } from '../core/guard/auth.guard';
 
 export const routes: Routes = [
   {
@@ -40,6 +41,7 @@ export const routes: Routes = [
   {
     path: 'app',
     component: AppHomeComponent,
+    canActivate:[AuthGuard],
     children: [
       {
         path: 'profile',
