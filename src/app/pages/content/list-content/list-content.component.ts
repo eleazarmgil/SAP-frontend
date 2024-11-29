@@ -4,6 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 import { ContentService } from '../../../../core/services/content/content.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { StorageService } from '../../../../core/services/storage/storage.service';
 
 @Component({
   selector: 'app-list-content',
@@ -16,13 +17,15 @@ export class ListContentComponent {
   disorders: Disorder[] = [];
   filteredDisorders: Disorder[] = []; // Filtered disorders
   searchTerm: string = ''; // Search term
-
+  role:string="";
   constructor(
     private router: Router,
-    private contentService: ContentService) {}
+    private contentService: ContentService,
+    private storageService: StorageService) {}
 
   ngOnInit(): void {
     this.getAllDisorders();
+    this.role=this.storageService.getItem('role')||"";
   }
 
   createDisorder() {

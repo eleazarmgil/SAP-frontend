@@ -1,7 +1,9 @@
 <div class="main-content">
   <div class="main-block">
     <div class="main-title">
-      <h1>Control de Contenido</h1>
+      <h1 *ngIf="role=='admin'">Control de Contenido</h1>
+      <h1 *ngIf="role!='admin'">Trastornos</h1>
+
     </div>
   </div>
 

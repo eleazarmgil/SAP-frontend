@@ -25,15 +25,18 @@ import { ReviewComponent } from './pages/review/review.component';
 import { CreateReviewComponent } from './pages/review/create-review/create-review.component';
 import { AuthGuard } from '../core/guard/auth.guard';
 import { AdminGuard } from '../core/guard/admin.guard';
+import { HomeGuard } from '../core/guard/home.guard';
 
 export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    canActivate:[HomeGuard]
   },
   {
     path: 'auth',
     component: AuthComponent,
+    canActivate:[HomeGuard],
     children: [
       { path: '', component: SignInComponent },
       { path: 'signup', component: SignUpComponent }

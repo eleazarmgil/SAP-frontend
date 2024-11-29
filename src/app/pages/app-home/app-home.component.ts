@@ -29,11 +29,19 @@ export class AppHomeComponent {
   constructor(private route: Router, private authService:AuthService, private storageService:StorageService) {}
 
   ngOnInit(): void {
-    this.menuItems= [
-      { label: 'Perfil', link: '/app/profile', icon: 'settings' },
-      { label: 'Control de Usuarios', link: '/app/users', icon: 'user' },
-      { label: 'Control de Contenido', link: '/app/content', icon: 'settings' }
-    ];
+    if(this.storageService.getItem('role')==='admin'){
+      this.menuItems= [
+        { label: 'Mi Perfil', link: '/app/profile', icon: 'settings' },
+        { label: 'Control de Usuarios', link: '/app/users', icon: 'user' },
+        { label: 'Trastornos', link: '/app/content', icon: 'settings' }
+      ];
+    }else{
+      this.menuItems= [
+        { label: 'Mi Perfil', link: '/app/profile', icon: 'settings' },
+        { label: 'Psicólogos', link: '/app/users', icon: 'user' },
+        { label: 'Trastornos', link: '/app/content', icon: 'settings' }
+      ];
+    }
   }
 
   toggleSidebar(): void {

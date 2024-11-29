@@ -3,7 +3,7 @@
     <div class="main-title">
       <h1>Control de Trastornos</h1>
     </div>
-    <button class="button-new" (click)="createDisorder()">Nuevo Trastorno</button>
+    <button *ngIf="role=='admin'" class="button-new" (click)="createDisorder()">Nuevo Trastorno</button>
   </div>
   <div class="search-block">
     <div class="search-bar">
@@ -21,9 +21,9 @@
       <tr *ngFor="let disorder of filteredDisorders">
         <td>{{ disorder.nombre }}</td>
         <td>
-          <button class="button-read" (click)="viewDisorder(disorder.id)">Ver</button>
-          <button class="button-edit" (click)="editDisorder(disorder.id)">Editar</button>
-          <button class="cancel-button" (click)="deleteDisorder(disorder.id)">Eliminar</button>
+          <button class="button-read"  (click)="viewDisorder(disorder.id)">Ver</button>
+          <button class="button-edit" *ngIf="role=='admin'" (click)="editDisorder(disorder.id)">Editar</button>
+          <button class="cancel-button" *ngIf="role=='admin'" (click)="deleteDisorder(disorder.id)">Eliminar</button>
         </td>
       </tr>
     </tbody>
