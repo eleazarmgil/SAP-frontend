@@ -13,12 +13,12 @@
     <p class="info-section-text">Correo electrónico: {{user?.email}}</p>
   </div>
 
-  <div class="buttons-section" *ngIf="role=='admin'">
+  <div class="buttons-section" *ngIf="userRole=='admin'">
     <button class="edit-button" *ngIf="user?.role=='usuario'" (click)="updateUser()">Editar</button>
     <button class="edit-button" *ngIf="user?.role=='admin'||user?.role=='psicologo'" (click)="updatePsychologist()">Editar</button>
   </div>
 
-  <div class="buttons-section" *ngIf="role=='admin'">
+  <div class="buttons-section" *ngIf="userRole=='admin'">
     <button class="verified-button" (click)="verify()">Aplicar verificación</button>
     <button class="unverified-button" (click)="unverify()">Quitar verificación</button>
 

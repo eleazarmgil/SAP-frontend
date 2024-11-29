@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { UserControlService } from '../../../../core/services/user-control/user-control.service';
 import { User } from '../../../../core/models/user.model';
 import { CommonModule } from '@angular/common';
+import { StorageService } from '../../../../core/services/storage/storage.service';
 
 @Component({
   selector: 'app-read-user',
@@ -15,15 +16,18 @@ export class ReadUserComponent implements OnInit {
   user: User | null = null; // Almacena la información del usuario
   role: string | null = null;
   isPsychologist: boolean = false;
+  userRole: string='';
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UserControlService
+    private userService: UserControlService,
+    private storageService: StorageService
   ) {}
 
   ngOnInit(): void {
-    this.getUserDetails(); // Llama al método para obtener detalles del usuario al inicializar
+    this.getUserDetails();
+    this.userRole=this.storageService.getItem("role")||"";
   }
 
   getUserDetails(): void {
