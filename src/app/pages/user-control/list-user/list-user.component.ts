@@ -11,13 +11,13 @@ import { StorageService } from '../../../../core/services/storage/storage.servic
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './list-user.component.html',
-  styleUrls: ['./list-user.component.scss'] // Corrige styleUrl a styleUrls
+  styleUrls: ['./list-user.component.scss']
 })
 export class ListUserComponent {
   users: User[] = [];
-  filteredUsers: User[] = []; // Usuarios filtrados
-  searchTerm: string = ''; // Término de búsqueda
-  actualUser: User | null = null;
+  filteredUsers: User[] = [];
+  searchTerm: string = '';
+  role:string='';
 
   constructor(
     private router: Router,
@@ -26,28 +26,22 @@ export class ListUserComponent {
   ) {}
 
   ngOnInit(): void {
-    this.loadCurrentUser();
-    this.getAllUsers(); // Cargar usuarios al inicializar
+    this.getAllUsers();
+    this.role=this.storageService.getItem('role')||"";
   }
 
   createUser() {
     this.router.navigate(['/app/users/new']);
   }
 
-  private loadCurrentUser(): void {
-    const userString = this.storageService.getItem("user") || "";
-    this.actualUser = JSON.parse(userString);
-  }
-
   private getAllUsers(): void {
     this.userService.getAllUsers().subscribe({
       next: (data: User[]) => {
-        this.users = data; // Asigna la respuesta a la propiedad users
-        this.filteredUsers = data; // Inicializa los usuarios filtrados con todos los usuarios
+        this.users = data;
         this.filterUsers(); // Filtrar usuarios después de cargar
       },
       error: (error: any) => {
-        console.error('Error fetching users:', error); // Manejo de error
+        console.error('Error fetching users:', error);
       }
     });
   }
@@ -59,7 +53,7 @@ export class ListUserComponent {
   filterUsers(): void {
     const term = this.normalizeString(this.searchTerm);
 
-    if (this.actualUser?.role === 'admin') {
+    if (this.storageService.getItem("role") === 'admin') {
       this.filteredUsers = this.getFilteredUsersForAdmin(term);
     } else {
       this.filteredUsers = this.getFilteredPsychologists(term);
@@ -67,9 +61,7 @@ export class ListUserComponent {
   }
 
   private getFilteredUsersForAdmin(term: string): User[] {
-    return this.users.filter(user =>
-      this.matchesSearchTerm(user, term)
-    );
+    return this.users.filter(user => this.matchesSearchTerm(user, term));
   }
 
   private getFilteredPsychologists(term: string): User[] {
