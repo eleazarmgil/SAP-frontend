@@ -70,6 +70,12 @@ export class UserControlService {
     return this.http.patch<any>(`${this.apiUrl}/usuarios/ActualizarPsicologo/${id}`, data, { headers });
   }
 
+  updatePsychologist(data: UpdatePsychologistRequest){
+    const token = this.storageService.getItem('token');
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    return this.http.patch<any>(`${this.apiUrl}/usuarios/ActualizarPsicologo/${data.id}`, data, { headers });
+  }
+
   updateUser(data:UpdateUserRequest){
     const token = this.storageService.getItem('token');
     const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
